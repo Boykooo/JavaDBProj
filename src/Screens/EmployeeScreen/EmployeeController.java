@@ -11,10 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class EmployeeController {
-
-
-
-
     public void initialize()
     {
         alert = new Alert(Alert.AlertType.INFORMATION);
@@ -58,13 +54,13 @@ public class EmployeeController {
         }
     }
     public void click_DeleteButton(MouseEvent mouseEvent) {
-        if (true){
+        if (checkDeleteData()){
             closeWindow(deleteButton);
             parent.deleteCortege(delete_IDBox.getText(), idChoiceBox.getValue(), delete_NameBox.getText(), delete_PhoneNumber.getText(), "employee");
         }
         else
         {
-            error("Одно из следующих полей не должно быть пустым: ID, Phone number");
+            error("Должен быть введен хотя бы 1 параметр");
         }
     }
 
@@ -72,7 +68,7 @@ public class EmployeeController {
         return !nameBox.getText().isEmpty() && !phoneBox.getText().isEmpty();
     }
     private boolean checkDeleteData(){
-        return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty();
+        return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
     }
     private void error(String msg){
         alert.setContentText(msg);
