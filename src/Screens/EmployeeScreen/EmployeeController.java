@@ -58,7 +58,7 @@ public class EmployeeController {
         }
     }
     public void click_DeleteButton(MouseEvent mouseEvent) {
-        if (checkDeleteData()){
+        if (true){
             closeWindow(deleteButton);
             parent.deleteCortege(delete_IDBox.getText(), idChoiceBox.getValue(), delete_NameBox.getText(), delete_PhoneNumber.getText(), "employee");
         }
