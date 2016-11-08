@@ -1,23 +1,23 @@
 package DBController;
 
-import Interfaces.IController;
+import Screens.AbstractController;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
 
 
 public class DBController {
-    public DBController(IController view){
+    public DBController(AbstractController view){
         this.view = view;
         try {
             DriverManager.registerDriver(new FabricMySQLDriver());
         } catch (SQLException e) {
-            view.errorMessage("Ошибка при подключении драйвера субд");
+            view.showAlert("Ошибка при подключении драйвера субд");
         }
         attachDB();
     }
 
     private Connection conn;
-    private IController view;
+    private AbstractController view;
 
     private void attachDB(){
         try{
@@ -31,7 +31,7 @@ public class DBController {
             }
         }
         catch (SQLException e){
-            view.errorMessage("Конект не удался");
+            view.showAlert("Конект не удался");
         }
     }
     private void detachDB(){
@@ -42,7 +42,7 @@ public class DBController {
             }
         }
         catch (SQLException e){
-            view.errorMessage("Отключить базу не удалось");
+            view.showAlert("Отключить базу не удалось");
         }
     }
 
@@ -55,7 +55,7 @@ public class DBController {
             request.executeUpdate();
         }
         catch (SQLException ex){
-            view.errorMessage("Ошибка при добавлении нового сотрудника");
+            view.showAlert("Ошибка при добавлении нового сотрудника");
         }
     }
     private void addNewAgreement(){
@@ -80,7 +80,7 @@ public class DBController {
             request.executeUpdate();
         }
         catch (SQLException e){
-            view.errorMessage("Ошибка при удалении кортежа");
+            view.showAlert("Ошибка при удалении кортежа");
         }
     }
 
@@ -95,7 +95,7 @@ public class DBController {
 
         }
         catch (SQLException e){
-            view.errorMessage("Ошибка при получении таблицы");
+            view.showAlert("Ошибка при получении таблицы");
         }
 
         return resultSet;

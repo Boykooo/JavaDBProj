@@ -4,8 +4,8 @@ import DBController.BaseClasses.Agreement;
 import DBController.BaseClasses.Cassette;
 import DBController.BaseClasses.Employee;
 import DBController.DBController;
-import Interfaces.IController;
-import Screens.EmployeeScreen.EmployeeController;
+import Interfaces.IMainController;
+import Screens.AbstractController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,117 +14,65 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 
-public class MainController implements IController{
-    public void initialize()
-    {
+public class MainController extends AbstractController implements IMainController{
+
+    @FXML
+    public void initialize() {
         choiceDBBOX.setOnAction(event -> showTable(choiceDBBOX.getValue()));
-
         db = new DBController(this);
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
         showTable("Employee");
     }
 
     private DBController db;
-    private Alert alert;
-    private EmployeeController newEmployeeController;
+    private AbstractController children;
 
     @FXML
     private ChoiceBox<String> choiceDBBOX;
     @FXML
     private TableView<Object> DBBox;
 
-    @Override
-    public void errorMessage(String msg) {
-        alert.setContentText(msg);
-        alert.showAndWait();
-    }
     @FXML
-    public void click_AddButton(){
-        switch (choiceDBBOX.getSelectionModel().getSelectedItem()){
-            case "Employee":
-                showEmployeeScreen("NewEmployeeScreen.fxml");
-                break;
-            case "Agreement":
-                showAgreementScreen();
-                break;
-            case "Cassette":
-                showCassetteScreen();
-                break;
-            default:
-                break;
-        }
-    }
-    @FXML
-    public void click_refreshButton(MouseEvent mouseEvent) {
+    public void click_refreshButton() {
         showTable(choiceDBBOX.getValue());
     }
     @FXML
-    public void click_deleteButton(MouseEvent mouseEvent) {
-        showEmployeeScreen("DeleteEmployeeScreen.fxml");
+    public void click_AddButton(){
+
+        String fileName = choiceDBBOX.getSelectionModel().getSelectedItem();
+        String path = MessageFormat.format("../{0}Screen/New{1}Screen.fxml", fileName, fileName);
+        showScreen(path);
     }
-    public void addNewCortege(Object... params){
+    @FXML
+    public void click_deleteButton() {
+        String fileName = choiceDBBOX.getSelectionModel().getSelectedItem();
+        String path = MessageFormat.format("../{0}Screen/Delete{1}Screen.fxml", fileName, fileName);
+        showScreen(path);
+    }
+
+    @Override
+    public void addCortege(Object... params) {
         db.addNewCortege(params);
     }
+    @Override
     public void deleteCortege(Object... params){
         db.deleteCortege(params);
     }
+    @Override
+    public void updateCortege(Object... params) {
+
+    }
+    @Override
     public void closeConnection(){
         db.closeConnection();
     }
 
-    private void showEmployeeScreen(String nameFile){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../EmployeeScreen/"+nameFile));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-
-            newEmployeeController = loader.getController();
-            newEmployeeController.setParent(this);
-
-
-        }
-        catch (IOException ex){
-            errorMessage("Не удалось загрузить экран");
-        }
-    }
-    private void showAgreementScreen() {
-        try{
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../EmployeeScreen/NewEmployeeScreen.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-
-            newEmployeeController = loader.getController();
-            newEmployeeController.setParent(this);
-
-
-        }
-        catch (IOException ex){
-            errorMessage("Не удалось загрузить экран");
-        }
-    }
-    private void showCassetteScreen() {
-
-    }
     private void showTable(String dbName){
         ResultSet dbData = db.getDB(dbName.toLowerCase());
 
@@ -158,7 +106,7 @@ public class MainController implements IController{
                         break;
                 }
             } catch (SQLException e) {
-                errorMessage("Ошибка обработки ResultSet");
+                showAlert("Ошибка обработки ResultSet");
             }
         }
 
@@ -213,6 +161,25 @@ public class MainController implements IController{
             e.printStackTrace();
         }
         return list;
+    }
+
+    private void showScreen(String path) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+            children = loader.getController();
+            children.setParent(this);
+
+
+        } catch (Exception ex) {
+            showAlert("Не удалось загрузить экран");
+        }
     }
 
 }

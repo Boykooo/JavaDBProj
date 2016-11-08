@@ -1,6 +1,7 @@
 package Screens.EmployeeScreen;
 
 
+import Screens.AbstractController;
 import Screens.MainScreen.MainController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,34 +11,26 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class EmployeeController {
-    public void initialize()
-    {
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(null);
-    }
+public class EmployeeController extends AbstractController {
 
     @FXML
-    public TextField nameBox;
+    private TextField nameBox;
     @FXML
-    public TextField phoneBox;
+    private TextField phoneBox;
     @FXML
-    public Button addButton;
+    private Button addButton;
     @FXML
-    public Button deleteButton;
+    private Button deleteButton;
     @FXML
-    public TextField delete_IDBox;
+    private TextField delete_IDBox;
     @FXML
-    public TextField delete_NameBox;
+    private TextField delete_NameBox;
     @FXML
-    public TextField delete_PhoneNumber;
+    private TextField delete_PhoneNumber;
     @FXML
-    public ChoiceBox idChoiceBox;
+    private ChoiceBox idChoiceBox;
 
     private MainController parent;
-    private Alert alert;
 
     public void setParent(MainController parent) {
         this.parent = parent;
@@ -46,11 +39,11 @@ public class EmployeeController {
     public void click_AddButton(){
         if (checkData()){
             closeWindow(addButton);
-            parent.addNewCortege(nameBox.getText(), phoneBox.getText(), "employee");
+            parent.addCortege(nameBox.getText(), phoneBox.getText(), "employee");
         }
         else
         {
-            error("Поля не должны быть пусты");
+            showAlert("Поля не должны быть пусты");
         }
     }
     public void click_DeleteButton(MouseEvent mouseEvent) {
@@ -60,7 +53,7 @@ public class EmployeeController {
         }
         else
         {
-            error("Должен быть введен хотя бы 1 параметр");
+            showAlert("Должен быть введен хотя бы 1 параметр");
         }
     }
 
@@ -69,10 +62,6 @@ public class EmployeeController {
     }
     private boolean checkDeleteData(){
         return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
-    }
-    private void error(String msg){
-        alert.setContentText(msg);
-        alert.show();
     }
     private void closeWindow(Button btn){
         Stage stage = (Stage) btn.getScene().getWindow();
