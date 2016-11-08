@@ -21,8 +21,6 @@ public class DBController {
 
     private void attachDB(){
         try{
-
-
             String PASSWORD = "root";
             String USERNAME = "root";
             String URL = "jdbc:mysql://91.202.20.14:3306/videorental?autoReconnect=true&useSSL=false";
