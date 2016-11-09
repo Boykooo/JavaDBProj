@@ -1,8 +1,10 @@
 package DBController;
 
 import Screens.AbstractController;
+import com.mysql.fabric.ServerRole;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
+import java.util.concurrent.ExecutionException;
 
 
 public class DBController {
@@ -18,6 +20,55 @@ public class DBController {
 
     private Connection conn;
     private AbstractController view;
+
+    public ResultSet getDB(String nameDB){
+        ResultSet resultSet = null;
+        try
+        {
+            Statement st = conn.createStatement();
+            resultSet = st.executeQuery("Select * from " + nameDB);
+
+        }
+        catch (SQLException e){
+            view.showAlert("Ошибка при получении таблицы");
+        }
+
+        return resultSet;
+    }
+    public void closeConnection(){
+        detachDB();
+    }
+    public void addNewCortege(Object... params){
+        switch (params[params.length - 1].toString()){
+            case "employee":
+                addNewEmployee(params[0].toString(), params[1].toString());
+                break;
+            case "agreement":
+                addNewAgreement(params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        params[4].toString(),
+                        params[5].toString(),
+                        params[6].toString());
+                break;
+            case "cassette":
+                break;
+        }
+    }
+    public void deleteCortege(Object... params){
+        switch (params[params.length - 1].toString()){
+            case "employee":
+                deleteEmployee(params[0].toString(), params[1].toString(), params[2].toString(), params[3].toString());
+                break;
+            case "agreement":
+                break;
+            case "cassette":
+                break;
+            default:
+                break;
+        }
+    }
 
     private void attachDB(){
         try{
@@ -46,6 +97,7 @@ public class DBController {
         }
     }
 
+    //Добавление в базу
     private void addNewEmployee(String name, String phone){
         try{
             PreparedStatement request = conn.prepareStatement("INSERT INTO employee (Name, Phone_Number) VALUES (?, ?)");
@@ -58,16 +110,65 @@ public class DBController {
             view.showAlert("Ошибка при добавлении нового сотрудника");
         }
     }
-    private void addNewAgreement(){
+    private void addNewAgreement(String clientName, String clientPhone, String totalPrice, String filmsID, String orderDate, String returnDate, String idEmployee){
+        try{
+            String req = "INSERT INTO agreement (Client_Name, Client_Phone_Number, Total_Price, Order_Date, ID_Employee, Last_Return_Date) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, clientName);
+            request.setString(2, clientPhone);
+            request.setString(3, totalPrice);
+            request.setString(4, orderDate);
+            request.setInt(5, Integer.parseInt(idEmployee));
+            request.setString(6, returnDate);
 
+            request.executeUpdate();
+
+            req = "SELECT ID_Agreement FROM Agreement WHERE Client_Phone_Number = ?";
+            request = conn.prepareStatement(req);
+            request.setString(1, clientPhone);
+
+            //Получаем id договора
+            ResultSet resultSet = request.executeQuery();
+            resultSet.next();
+            String idAgreement =  resultSet.getString(1);
+
+            addAgrAndCassette(idAgreement, filmsID);
+        }
+        catch (Exception  ex){
+            view.showAlert("Ошибка при добавлении нового сотрудника");
+        }
+    }
+    private void addAgrAndCassette(String idAgreement, String filmsID){
+        String[] cassettes = filmsID.split(",");
+        String req = "INSERT INTO cassette_rentals (ID_Agreement, ID_Cassette) VALUES (?, ?)";
+
+        try
+        {
+            PreparedStatement request = conn.prepareStatement(req);
+
+            int idAgr = Integer.parseInt(idAgreement);
+
+            //Добавляем все кассеты в договоре
+            for (String cassette : cassettes) {
+
+                request.setInt(1, idAgr);
+                request.setInt(2, Integer.parseInt(cassette));
+                request.executeUpdate();
+            }
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка при добавлении в базу cassette_rentals");
+        }
     }
     private void addNewCassette(){
 
     }
 
+    //Удаление из базы
     private void deleteEmployee(String id, String sign, String name, String phone){
+
+        String req = "delete from employee where (ID_Employee = ? or ? = '') and (Name = ? or ? = '') and (Phone_Number = ? or ? = '')";
         try{
-            String req = "delete from employee where (ID_Employee = ? or ? = '') and (Name = ? or ? = '') and (Phone_Number = ? or ? = '')";
             PreparedStatement request = conn.prepareStatement(req);
 
             request.setString(1, id);
@@ -84,47 +185,8 @@ public class DBController {
         }
     }
 
-    public ResultSet getDB(String nameDB){
-
-        //attachDB();
-        ResultSet resultSet = null;
-        try
-        {
-            Statement st = conn.createStatement();
-            resultSet = st.executeQuery("Select * from " + nameDB);
-
-        }
-        catch (SQLException e){
-            view.showAlert("Ошибка при получении таблицы");
-        }
-
-        return resultSet;
-    }
-    public void closeConnection(){
-        detachDB();
-    }
-    public void addNewCortege(Object... params){
-        switch (params[params.length - 1].toString()){
-            case "employee":
-                addNewEmployee(params[0].toString(), params[1].toString());
-                break;
-            case "agreement":
-                break;
-            case "cassette":
-                break;
-        }
-    }
-    public void deleteCortege(Object... params){
-        switch (params[params.length - 1].toString()){
-            case "employee":
-                deleteEmployee(params[0].toString(), params[1].toString(), params[2].toString(), params[3].toString());
-                break;
-            case "agreement":
-                break;
-            case "cassette":
-                break;
-            default:
-                break;
-        }
+    //Вспомогательные функции
+    private Date parseDate(String date){
+        return new Date(Long.parseLong(date));
     }
 }

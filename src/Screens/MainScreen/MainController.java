@@ -31,7 +31,6 @@ public class MainController extends AbstractController implements IMainControlle
     }
 
     private DBController db;
-    private AbstractController children;
 
     @FXML
     private ChoiceBox<String> choiceDBBOX;
@@ -173,15 +172,13 @@ public class MainController extends AbstractController implements IMainControlle
             stage.setScene(scene);
             stage.show();
 
-            children = loader.getController();
+            AbstractController children = loader.getController();
             children.setParent(this);
-
 
         } catch (Exception ex) {
             showAlert("Не удалось загрузить экран");
         }
     }
-
 }
 
 

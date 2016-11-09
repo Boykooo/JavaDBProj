@@ -30,12 +30,6 @@ public class EmployeeController extends AbstractController {
     @FXML
     private ChoiceBox idChoiceBox;
 
-    private MainController parent;
-
-    public void setParent(MainController parent) {
-        this.parent = parent;
-    }
-
     public void click_AddButton(){
         if (checkData()){
             closeWindow(addButton);
@@ -63,9 +57,6 @@ public class EmployeeController extends AbstractController {
     private boolean checkDeleteData(){
         return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
     }
-    private void closeWindow(Button btn){
-        Stage stage = (Stage) btn.getScene().getWindow();
-        stage.close();
-    }
+
 
 }

@@ -2,6 +2,8 @@ package Screens;
 
 import Interfaces.IMainController;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public abstract class AbstractController {
     public AbstractController() {
@@ -12,7 +14,7 @@ public abstract class AbstractController {
     }
 
     private Alert alert;
-    private IMainController parent;
+    protected IMainController parent;
 
     public void showAlert(String message){
         alert.setContentText(message);
@@ -20,5 +22,9 @@ public abstract class AbstractController {
     }
     public void setParent(IMainController parent){
         this.parent = parent;
+    }
+    protected void closeWindow(Button btn){
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 }
