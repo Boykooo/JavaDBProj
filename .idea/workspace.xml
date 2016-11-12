@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" line="48" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Немножко поменял архитектуру проекта, рефакторинг">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/DBProj/Interfaces/IController.class" afterPath="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/Screens/AgreementScreen/AgreementController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/Screens/AgreementScreen/AgreementController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/EmployeeController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/EmployeeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/Screens/MainScreen/MainController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/Screens/MainScreen/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/dec2a76b-caed-4b98-8813-b326b630940c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/dec2a76b-caed-4b98-8813-b326b630940c.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBController/DBController.java" afterPath="$PROJECT_DIR$/src/DBController/DBController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AbstractController.java" afterPath="$PROJECT_DIR$/src/Screens/AbstractController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java" afterPath="$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" afterPath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,6 +26,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/JavaDBProj$Main.coverage" NAME="Main Coverage Results" MODIFIED="1478736408321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Screens.MainScreen.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/DBProj$Main.coverage" NAME="Main Coverage Results" MODIFIED="1478452701947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Screens.MainScreen.*</FILTER>
     </SUITE>
@@ -95,9 +91,10 @@
       <file leaf-file-name="DBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+            <state relative-caret-position="528">
+              <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#DBController#0;class#DBController#0" expanded="false" />
                 <element signature="method#getDB#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
@@ -108,8 +105,8 @@
                 <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
                 <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-                <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
-                <marker date="1478733557823" expanded="false" signature="796:810" ph="Select * fro... missingValue" />
+                <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
+                <marker date="1478981372650" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
               </folding>
             </state>
           </provider>
@@ -118,12 +115,13 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+            <state relative-caret-position="298">
+              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
               <folding>
                 <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-                <element signature="method#click_AddButton#0;class#MainController#0" expanded="false" />
                 <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+                <element signature="e#1772#1773#0" expanded="true" />
+                <element signature="e#1812#1813#0" expanded="true" />
                 <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
                 <element signature="method#showTable#0;class#MainController#0" expanded="false" />
                 <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
@@ -138,13 +136,17 @@
       <file leaf-file-name="AgreementController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="646">
+              <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
               <folding>
+                <element signature="method#initialize#0;class#AgreementController#0" expanded="false" />
                 <element signature="method#click_AddNewAgreement#0;class#AgreementController#0" expanded="false" />
+                <element signature="method#click_DeleteAgreement#0;class#AgreementController#0" expanded="false" />
                 <element signature="method#checkInputAddData#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#checkIDEmployeeSyntax#0;class#AgreementController#0" expanded="false" />
-                <marker date="1478732137165" expanded="false" signature="739:1091" ph="..." />
+                <element signature="method#checkInputDeleteData#0;class#AgreementController#0" expanded="false" />
+                <element signature="method#checkFilmlsIDSyntax#0;class#AgreementController#0" expanded="false" />
+                <element signature="method#checkIntegerSyntax#0;class#AgreementController#0" expanded="false" />
+                <marker date="1478972701584" expanded="true" signature="1571:1923" ph="..." />
               </folding>
             </state>
           </provider>
@@ -197,12 +199,13 @@
         <option value="$PROJECT_DIR$/src/Screens/NewEmployeeScreen/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployee.fxml" />
         <option value="$PROJECT_DIR$/src/Screens/MainScreen/MainScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Interfaces/IMainController.java" />
         <option value="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
-        <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AbstractController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" />
         <option value="$PROJECT_DIR$/src/DBController/DBController.java" />
       </list>
@@ -250,7 +253,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>IgnoreResultOfCall</id>
+            <id>ConstantConditions</id>
           </State>
         </selected-state>
       </profile-state>
@@ -286,12 +289,83 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaDBProj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgreementScreen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,6 +385,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -787,7 +862,8 @@
       <workItem from="1478644640298" duration="1891000" />
       <workItem from="1478648205784" duration="347000" />
       <workItem from="1478714134433" duration="5456000" />
-      <workItem from="1478730602308" duration="3015000" />
+      <workItem from="1478730602308" duration="9622000" />
+      <workItem from="1478971582417" duration="7262000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1478478774783</created>
@@ -817,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478628337738</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавление нового договора в базу">
+      <created>1478733672974</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1478733672974</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66599000" />
+    <option name="totallyTimeSpent" value="80468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -839,12 +922,13 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17114915" sideWeight="0.5605536" order="9" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22249389" sideWeight="0.5552995" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21088019" sideWeight="0.48795182" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27419356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4939759" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31336406" sideWeight="0.5" order="14" side_tool="false" content_ui="combo" x="31" y="767" width="1630" height="197" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23732719" sideWeight="0.5" order="14" side_tool="false" content_ui="combo" x="31" y="767" width="1630" height="197" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -854,11 +938,10 @@
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20110025" sideWeight="0.43944636" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17114915" sideWeight="0.44470045" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27419356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -895,11 +978,12 @@
     <MESSAGE value="Добавление, удаление" />
     <MESSAGE value="Рефакторинг" />
     <MESSAGE value="Немножко поменял архитектуру проекта, рефакторинг" />
-    <option name="LAST_COMMIT_MESSAGE" value="Немножко поменял архитектуру проекта, рефакторинг" />
+    <MESSAGE value="Добавление нового договора в базу" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление нового договора в базу" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="83" />
+      <option name="time" value="129" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -908,24 +992,15 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_AddButton#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
@@ -965,6 +1040,7 @@
         <state relative-caret-position="391">
           <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#DBController#0;class#DBController#0" expanded="false" />
             <element signature="method#getDB#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
@@ -975,8 +1051,8 @@
             <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
             <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
-            <marker date="1478733557823" expanded="false" signature="796:810" ph="Select * fro... missingValue" />
+            <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
+            <marker date="1478981372650" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
           </folding>
         </state>
       </provider>
@@ -997,8 +1073,9 @@
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_AddButton#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
@@ -1039,8 +1116,9 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_AddButton#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
@@ -1134,16 +1212,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/NewEmployeeScreen/NewEmployeeScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/NewEmployeeScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -1155,16 +1223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="60" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1190,14 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="1772" column="0" selection-start-line="1772" selection-start-column="0" selection-end-line="1772" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1234,22 +1284,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/StatementImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/MysqlIO.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="1599" column="0" selection-start-line="1599" selection-start-column="0" selection-end-line="1599" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/ConnectionPropertiesImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="1036" column="0" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/Buffer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/ConnectionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="3708" column="0" selection-start-line="3708" selection-start-column="0" selection-end-line="3708" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding>
+            <element signature="method#showAlert#0;class#AbstractController#0" expanded="false" />
+            <element signature="method#closeWindow#0;class#AbstractController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/NewEmployeeScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="method#click_AddButton#0;class#EmployeeController#0" expanded="false" />
-            <element signature="method#click_DeleteButton#0;class#EmployeeController#0" expanded="false" />
-            <element signature="method#checkDeleteData#0;class#EmployeeController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="1773" column="0" selection-start-line="1773" selection-start-column="0" selection-end-line="1773" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/PreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16847">
+          <caret line="1054" column="0" selection-start-line="1054" selection-start-column="0" selection-end-line="1054" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="306">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1259,12 +1397,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="58" column="44" selection-start-line="58" selection-start-column="44" selection-end-line="58" selection-end-column="44" />
+        <state relative-caret-position="298">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_AddButton#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+            <element signature="e#1772#1773#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
@@ -1275,104 +1414,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <element signature="method#showAlert#0;class#AbstractController#0" expanded="false" />
-            <element signature="method#closeWindow#0;class#AbstractController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="646">
+          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
           <folding>
+            <element signature="method#initialize#0;class#AgreementController#0" expanded="false" />
             <element signature="method#click_AddNewAgreement#0;class#AgreementController#0" expanded="false" />
+            <element signature="method#click_DeleteAgreement#0;class#AgreementController#0" expanded="false" />
             <element signature="method#checkInputAddData#0;class#AgreementController#0" expanded="false" />
-            <element signature="method#checkIDEmployeeSyntax#0;class#AgreementController#0" expanded="false" />
-            <marker date="1478732137165" expanded="false" signature="739:1091" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/StatementImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/MysqlIO.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="1599" column="0" selection-start-line="1599" selection-start-column="0" selection-end-line="1599" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/ConnectionPropertiesImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1036" column="0" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
-          <folding>
-            <element signature="e#81377#81378#0" expanded="true" />
-            <element signature="e#81447#81448#0" expanded="true" />
-            <element signature="e#89268#89269#0" expanded="true" />
-            <element signature="e#158745#158746#0" expanded="true" />
-            <element signature="e#158820#158821#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/PreparedStatement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="1167" column="0" selection-start-line="1167" selection-start-column="0" selection-end-line="1167" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/Buffer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
-          <folding>
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1367#1368#0" expanded="true" />
-            <element signature="e#4566#4567#0" expanded="true" />
-            <element signature="e#4603#4604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/ConnectionImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="3708" column="0" selection-start-line="3708" selection-start-column="0" selection-end-line="3708" selection-end-column="0" />
-          <folding>
-            <element signature="e#9705#9706#0" expanded="true" />
-            <element signature="e#9781#9782#0" expanded="true" />
-            <element signature="e#10061#10062#0" expanded="true" />
-            <element signature="e#10137#10138#0" expanded="true" />
-            <element signature="e#161731#161732#0" expanded="true" />
-            <marker date="1462356700000" expanded="true" signature="90953:90982" ph="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="104903:104930" ph="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="107135:107164" ph="select @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="114265:114280" ph="/* missingVa... " />
+            <element signature="method#checkInputDeleteData#0;class#AgreementController#0" expanded="false" />
+            <element signature="method#checkFilmlsIDSyntax#0;class#AgreementController#0" expanded="false" />
+            <element signature="method#checkIntegerSyntax#0;class#AgreementController#0" expanded="false" />
+            <marker date="1478972701584" expanded="true" signature="1571:1923" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+        <state relative-caret-position="528">
+          <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#DBController#0;class#DBController#0" expanded="false" />
             <element signature="method#getDB#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
@@ -1383,8 +1447,8 @@
             <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
             <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
-            <marker date="1478733557823" expanded="false" signature="796:810" ph="Select * fro... missingValue" />
+            <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
+            <marker date="1478981372650" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
           </folding>
         </state>
       </provider>

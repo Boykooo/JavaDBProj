@@ -1,10 +1,11 @@
 package DBController;
 
 import Screens.AbstractController;
-import com.mysql.fabric.ServerRole;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
-import java.util.concurrent.ExecutionException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 
 public class DBController {
@@ -59,9 +60,21 @@ public class DBController {
     public void deleteCortege(Object... params){
         switch (params[params.length - 1].toString()){
             case "employee":
-                deleteEmployee(params[0].toString(), params[1].toString(), params[2].toString(), params[3].toString());
+                deleteEmployee(params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString());
                 break;
             case "agreement":
+                deleteAgreement(params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        params[4].toString(),
+                        params[5].toString(),
+                        params[6].toString(),
+                        params[7].toString()
+                        );
                 break;
             case "cassette":
                 break;
@@ -110,7 +123,7 @@ public class DBController {
             view.showAlert("Ошибка при добавлении нового сотрудника");
         }
     }
-    private void addNewAgreement(String clientName, String clientPhone, String totalPrice, String filmsID, String orderDate, String returnDate, String idEmployee){
+    private void addNewAgreement(String clientName, String clientPhone, String totalPrice, String filmsID, String orderDate, String returnDate, String employeeID){
         try{
             String req = "INSERT INTO agreement (Client_Name, Client_Phone_Number, Total_Price, Order_Date, ID_Employee, Last_Return_Date) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement request = conn.prepareStatement(req);
@@ -118,7 +131,7 @@ public class DBController {
             request.setString(2, clientPhone);
             request.setString(3, totalPrice);
             request.setString(4, orderDate);
-            request.setInt(5, Integer.parseInt(idEmployee));
+            request.setInt(5, Integer.parseInt(employeeID));
             request.setString(6, returnDate);
 
             request.executeUpdate();
@@ -135,7 +148,7 @@ public class DBController {
             addAgrAndCassette(idAgreement, filmsID);
         }
         catch (Exception  ex){
-            view.showAlert("Ошибка при добавлении нового сотрудника");
+            view.showAlert("Ошибка при добавлении нового договора");
         }
     }
     private void addAgrAndCassette(String idAgreement, String filmsID){
@@ -184,9 +197,73 @@ public class DBController {
             view.showAlert("Ошибка при удалении кортежа");
         }
     }
+    private void deleteAgreement(String id, String clientName, String clientPhone, String totalPrice, String sign, String employeeID , String orderDate, String returnDate){
+        if (!checkSign(sign))
+        {
+            view.showAlert("Попытка sql-инъекции!");
+            return;
+        }
+
+
+        String req = "delete from agreement where " +
+                "(ID_Agreement = ? or ? = '') and " +
+                "(Client_Name = ? or ? = '') and " +
+                "(Client_Phone_Number = ? or ? = '') and " +
+                "(Total_price = ? or ? = '') and " +
+                "(Order_Date = ? or isnull(?)) " +
+                "and (ID_Employee = ? or ? = '') and " +
+                "(Last_Return_Date = ? or isnull(?))";
+        try
+        {
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, id);
+            request.setString(2, id);
+            request.setString(3, clientName);
+            request.setString(4, clientName);
+            request.setString(5, clientPhone);
+            request.setString(6, clientPhone);
+            request.setString(7, totalPrice);
+            request.setString(8, totalPrice);
+            request.setDate(9, parseDate(orderDate));
+            request.setDate(10, parseDate(orderDate));
+            request.setString(11, employeeID);
+            request.setString(12, employeeID);
+            request.setDate(13, parseDate(returnDate));
+            request.setDate(14, parseDate(returnDate));
+
+
+            request.executeUpdate();
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка при удалении договора из базы");
+        }
+    }
 
     //Вспомогательные функции
-    private Date parseDate(String date){
-        return new Date(Long.parseLong(date));
+    private Date parseDate(String date) throws ParseException {
+        if (date.isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            java.sql.Date sqlDate = new  java.sql.Date(formatter.parse(date).getTime());
+
+            return sqlDate;
+        }
+    }
+    private boolean checkSign(String sign){
+        return sign.equals("=") || sign.equals("<") || sign.equals(">");
+    }
+    private Integer getIntValue(String str){
+        try
+        {
+            int k = Integer.parseInt(str);
+            return k;
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 }

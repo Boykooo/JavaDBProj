@@ -7,19 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="161.0" minWidth="367.0" prefHeight="193.0" prefWidth="367.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.EmployeeScreen.EmployeeController">
    <children>
       <TextField fx:id="delete_IDBox" layoutX="155.0" layoutY="25.0" />
       <ChoiceBox fx:id="idChoiceBox" layoutX="101.0" layoutY="25.0" prefHeight="25.0" prefWidth="46.0" value="=">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="=" />
-               <String fx:value="" />
-               <String fx:value="" />
-            </FXCollections>
-         </items>
       </ChoiceBox>
       <Label layoutX="75.0" layoutY="24.0" text="ID">
          <font>

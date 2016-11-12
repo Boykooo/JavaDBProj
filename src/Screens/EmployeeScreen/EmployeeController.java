@@ -4,6 +4,7 @@ package Screens.EmployeeScreen;
 import Screens.AbstractController;
 import Screens.MainScreen.MainController;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -11,7 +12,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class EmployeeController extends AbstractController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EmployeeController extends AbstractController implements Initializable {
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if (idChoiceBox != null)
+            idChoiceBox.getItems().addAll("=", "<", ">");
+    }
 
     @FXML
     private TextField nameBox;
@@ -57,6 +67,7 @@ public class EmployeeController extends AbstractController {
     private boolean checkDeleteData(){
         return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
     }
+
 
 
 }
