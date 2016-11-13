@@ -55,7 +55,7 @@ public class Cassette {
         Price = price;
     }
 
-    public boolean isExist() {
+    public boolean getExist() {
         return Exist;
     }
     public void setExist(boolean exist) {

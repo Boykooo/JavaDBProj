@@ -5,10 +5,7 @@ import Screens.AbstractController;
 import Screens.MainScreen.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -17,18 +14,23 @@ import java.util.ResourceBundle;
 
 public class EmployeeController extends AbstractController implements Initializable {
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (idChoiceBox != null)
             idChoiceBox.getItems().addAll("=", "<", ">");
     }
 
+    //Добавление
     @FXML
     private TextField nameBox;
     @FXML
     private TextField phoneBox;
     @FXML
     private Button addButton;
+
+    //Удаление
     @FXML
     private Button deleteButton;
     @FXML
@@ -40,6 +42,16 @@ public class EmployeeController extends AbstractController implements Initializa
     @FXML
     private ChoiceBox idChoiceBox;
 
+    //Редактирование
+    @FXML
+    private Button updateButton;
+    @FXML
+    private TextField box_updateName;
+    @FXML
+    private TextField box_updatePhone;
+    @FXML
+    private Label label_ID;
+
     public void click_AddButton(){
         if (checkData()){
             closeWindow(addButton);
@@ -50,7 +62,7 @@ public class EmployeeController extends AbstractController implements Initializa
             showAlert("Поля не должны быть пусты");
         }
     }
-    public void click_DeleteButton(MouseEvent mouseEvent) {
+    public void click_DeleteButton() {
         if (checkDeleteData()){
             closeWindow(deleteButton);
             parent.deleteCortege(delete_IDBox.getText(), idChoiceBox.getValue(), delete_NameBox.getText(), delete_PhoneNumber.getText(), "employee");
@@ -60,6 +72,22 @@ public class EmployeeController extends AbstractController implements Initializa
             showAlert("Должен быть введен хотя бы 1 параметр");
         }
     }
+    public void click_UpdateButton() {
+        if (checkUpdateData()){
+            parent.updateCortege(box_updateName.getText(), box_updatePhone.getText(), label_ID.getText(), "employee");
+            closeWindow(updateButton);
+        }
+        else {
+            showAlert("Некорректный ввод");
+        }
+    }
+
+    @Override
+    public void setLabel(Object... objects){
+        box_updateName.setText(objects[0].toString());
+        box_updatePhone.setText(objects[1].toString());
+        label_ID.setText(objects[2].toString());
+    }
 
     private boolean checkData(){
         return !nameBox.getText().isEmpty() && !phoneBox.getText().isEmpty();
@@ -67,7 +95,35 @@ public class EmployeeController extends AbstractController implements Initializa
     private boolean checkDeleteData(){
         return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
     }
-
-
-
+    private boolean checkUpdateData(){
+        return !box_updatePhone.getText().isEmpty();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

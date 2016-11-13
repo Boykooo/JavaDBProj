@@ -101,6 +101,21 @@ public class DBController {
                 break;
         }
     }
+    public void updateCortege(Object... params){
+        switch (params[params.length - 1].toString()){
+            case "employee":
+                updateEmployee(params[0].toString(), params[1].toString(), params[2].toString());
+                break;
+            case "agreement":
+
+                break;
+            case "cassette":
+
+                break;
+            default:
+                break;
+        }
+    }
 
     //Добавление в базу
     private void addNewEmployee(String name, String phone){
@@ -110,6 +125,7 @@ public class DBController {
             request.setString(2, phone);
 
             request.executeUpdate();
+            request.close();
         }
         catch (SQLException ex){
             view.showAlert("Ошибка при добавлении нового сотрудника");
@@ -138,6 +154,8 @@ public class DBController {
             String idAgreement =  resultSet.getString(1);
 
             addAgrAndCassette(idAgreement, filmsID);
+
+            request.close();
         }
         catch (Exception  ex){
             view.showAlert("Ошибка при добавлении нового договора");
@@ -159,6 +177,8 @@ public class DBController {
                 request.setInt(1, idAgr);
                 request.setInt(2, Integer.parseInt(cassette));
                 request.executeUpdate();
+
+                request.close();
             }
         }
         catch (Exception e){
@@ -167,7 +187,8 @@ public class DBController {
     }
     private void addNewCassette(String genre, String name, String director, String price, boolean exist, String year){
 
-        if (!checkFreeFilmName(name))
+
+        if (!checkFreeValue("select * from cassette where Name = ?", name))
         {
             view.showAlert(name + " уже находится в базе");
             return;
@@ -185,6 +206,8 @@ public class DBController {
             request.setInt(6, getInteger(year));
 
             request.executeUpdate();
+
+            request.close();
 
         }
         catch (Exception  ex){
@@ -207,6 +230,8 @@ public class DBController {
             request.setString(6, phone);
 
             request.executeUpdate();
+
+            request.close();
         }
         catch (SQLException e){
             view.showAlert("Ошибка при удалении кортежа");
@@ -248,6 +273,8 @@ public class DBController {
 
 
             request.executeUpdate();
+
+            request.close();
         }
         catch (Exception e){
             view.showAlert("Ошибка при удалении договора из базы");
@@ -287,12 +314,40 @@ public class DBController {
             request.setString(14, year);
 
             request.executeUpdate();
+
+            request.close();
         }
         catch (Exception e){
             view.showAlert("Ошибка при удалении кассеты из базы");
         }
     }
 
+    //обновление базы
+    private void updateEmployee(String newName, String newPhone, String id){
+
+        if (!checkFreeUpdateValue("select * from employee where Phone_Number = ? and ID_Employee != ?", newPhone, id))
+        {
+            view.showAlert("Данный телефон занят");
+            return;
+        }
+
+        try{
+
+            String req = "update videorental.employee set Phone_Number = ?, Name = ? where ID_Employee = ?";
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, newPhone);
+            request.setString(2, newName);
+            int k = Integer.parseInt(id);
+            request.setString(3, id);
+
+            int updateEXP_done = request.executeUpdate();
+
+            request.close();
+        }
+        catch (Exception  ex){
+            view.showAlert("Ошибка при обновлении значений сотрудника");
+        }
+    }
 
     //Вспомогательные функции
     private Date parseDate(String date) throws ParseException {
@@ -324,12 +379,10 @@ public class DBController {
                 return "";
         }
     }
-    private boolean checkFreeFilmName(String name){
-
+    private boolean checkFreeValue(String req, String name){
         int count = 0;
         try
         {
-            String req = "select * from cassette where Name = ?";
             PreparedStatement request = conn.prepareStatement(req);
             request.setString(1, name);
 
@@ -340,7 +393,26 @@ public class DBController {
         }
         catch (Exception e)
         {
-            view.showAlert("Ошибка в проверке свободного имени фильма");
+            view.showAlert("Ошибка в проверке свободного телефона сотрудника");
+        }
+        return count == 0;
+    }
+    private boolean checkFreeUpdateValue(String req, String value,  String id){
+        int count = 0;
+        try
+        {
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, value);
+            request.setString(2, id);
+
+            ResultSet res = request.executeQuery();
+            res.last();
+            count = res.getRow();
+            System.out.printf(String.valueOf(count));
+        }
+        catch (Exception e)
+        {
+            view.showAlert("Ошибка в проверке свободного значения - " + value);
         }
         return count == 0;
     }

@@ -23,6 +23,8 @@ public abstract class AbstractController {
     public void setParent(IMainController parent){
         this.parent = parent;
     }
+
+    public void setLabel(Object... objects) { }
     protected void closeWindow(Button btn){
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.close();
