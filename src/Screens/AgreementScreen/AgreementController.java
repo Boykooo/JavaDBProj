@@ -17,7 +17,7 @@ public class AgreementController extends AbstractController implements Initializ
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (deleteChoiceTotalPrice != null)
-        deleteChoiceTotalPrice.getItems().addAll("=", "<", ">", "or");
+        deleteChoiceTotalPrice.getItems().addAll("=", "<", ">");
     }
 
     @FXML

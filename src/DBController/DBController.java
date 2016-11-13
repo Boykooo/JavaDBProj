@@ -209,7 +209,7 @@ public class DBController {
                 "(ID_Agreement = ? or ? = '') and " +
                 "(Client_Name = ? or ? = '') and " +
                 "(Client_Phone_Number = ? or ? = '') and " +
-                "(Total_price = ? or ? = '') and " +
+                "(Total_price " + sign + " ? or ? = '') and " +
                 "(Order_Date = ? or isnull(?)) " +
                 "and (ID_Employee = ? or ? = '') and " +
                 "(Last_Return_Date = ? or isnull(?))";
