@@ -149,15 +149,16 @@ public class MainController extends AbstractController implements IMainControlle
         try {
             while (setData.next()) {
                 int ID_Cassette = setData.getInt("ID_Cassette");
-                String Genre = setData.getString("Genre");
-                String Name = setData.getString("Name");
-                String Producer = setData.getString("Producer");
-                String Price = setData.getString("Price");
-                boolean Exist = setData.getBoolean("Exist");
-                list.add(new Cassette(ID_Cassette, Genre, Name, Producer, Price, Exist));
+                String genre = setData.getString("Genre");
+                String name = setData.getString("Name");
+                String producer = setData.getString("Director");
+                String price = setData.getString("Price");
+                boolean exist = setData.getBoolean("Exist");
+                int year = setData.getInt("Year");
+                list.add(new Cassette(ID_Cassette, genre, name, producer, price, exist, year));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            showAlert("Ошибка вывода таблицы");
         }
         return list;
     }

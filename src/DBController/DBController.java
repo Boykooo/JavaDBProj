@@ -54,6 +54,14 @@ public class DBController {
                         params[6].toString());
                 break;
             case "cassette":
+                addNewCassette(
+                        params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        (boolean) params[4],
+                        params[5].toString()
+                );
                 break;
         }
     }
@@ -83,32 +91,7 @@ public class DBController {
         }
     }
 
-    private void attachDB(){
-        try{
-            String PASSWORD = "root";
-            String USERNAME = "root";
-            String URL = "jdbc:mysql://91.202.20.14:3306/videorental?autoReconnect=true&useSSL=false";
 
-            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            if (!conn.isClosed()){
-                System.out.printf("Соединение с базой установлено \n");
-            }
-        }
-        catch (SQLException e){
-            view.showAlert("Конект не удался");
-        }
-    }
-    private void detachDB(){
-        try {
-            if (!conn.isClosed()){
-                conn.close();
-                System.out.printf("База отключена \n");
-            }
-        }
-        catch (SQLException e){
-            view.showAlert("Отключить базу не удалось");
-        }
-    }
 
     //Добавление в базу
     private void addNewEmployee(String name, String phone){
@@ -173,8 +156,31 @@ public class DBController {
             view.showAlert("Ошибка при добавлении в базу cassette_rentals");
         }
     }
-    private void addNewCassette(){
+    private void addNewCassette(String genre, String name, String director, String price, boolean exist, String year){
 
+        if (!checkFreeFilmName(name))
+        {
+            view.showAlert(name + " уже находится в базе");
+            return;
+        }
+
+        try{
+
+            String req = "INSERT INTO cassette (Genre, Name, Director, Price, Exist, Year) values(?,?,?,?,?,?)";
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, genre);
+            request.setString(2, name);
+            request.setString(3, director);
+            request.setInt(4, getInteger(price));
+            request.setBoolean(5, exist);
+            request.setInt(6, getInteger(year));
+
+            request.executeUpdate();
+
+        }
+        catch (Exception  ex){
+            view.showAlert("Ошибка при добавлении новой кассеты");
+        }
     }
 
     //Удаление из базы
@@ -256,14 +262,54 @@ public class DBController {
     private boolean checkSign(String sign){
         return sign.equals("=") || sign.equals("<") || sign.equals(">");
     }
-    private Integer getIntValue(String str){
+    private int getInteger(String str){
+        return str.isEmpty() ? -1 : Integer.parseInt(str);
+    }
+    private boolean checkFreeFilmName(String name){
+
+        int count = 0;
         try
         {
-            int k = Integer.parseInt(str);
-            return k;
+            String req = "select * from cassette where Name = ?";
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, name);
+
+            ResultSet res = request.executeQuery();
+            res.last();
+            count = res.getRow();
+            System.out.printf(String.valueOf(count));
         }
-        catch (Exception e){
-            return null;
+        catch (Exception e)
+        {
+            view.showAlert("Ошибка в проверке свободного имени фильма");
+        }
+        return count == 0;
+    }
+
+    private void attachDB(){
+        try{
+            String PASSWORD = "root";
+            String USERNAME = "root";
+            String URL = "jdbc:mysql://91.202.20.14:3306/videorental?autoReconnect=true&useSSL=false";
+
+            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            if (!conn.isClosed()){
+                System.out.printf("Соединение с базой установлено \n");
+            }
+        }
+        catch (SQLException e){
+            view.showAlert("Конект не удался");
+        }
+    }
+    private void detachDB(){
+        try {
+            if (!conn.isClosed()){
+                conn.close();
+                System.out.printf("База отключена \n");
+            }
+        }
+        catch (SQLException e){
+            view.showAlert("Отключить базу не удалось");
         }
     }
 }

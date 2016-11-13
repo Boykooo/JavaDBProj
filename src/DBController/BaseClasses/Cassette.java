@@ -1,24 +1,24 @@
 package DBController.BaseClasses;
 
-/**
- * Created by Andrey on 06.11.2016.
- */
+
 public class Cassette {
-    public Cassette(int ID_Cassette, String Genre, String Name, String Producer, String Price, boolean Exist){
+    public Cassette(int ID_Cassette, String Genre, String Name, String Director, String Price, boolean Exist, int Year){
         this.ID_Cassette = ID_Cassette;
         this.Genre = Genre;
         this.Name = Name;
-        this.Producer = Producer;
+        this.Director = Director;
         this.Price = Price;
         this.Exist = Exist;
+        this.Year = Year;
     }
 
     private int ID_Cassette;
     private String Genre;
     private String Name;
-    private String Producer;
+    private String Director;
     private String Price;
     private boolean Exist;
+    private int Year;
 
     public int getID_Cassette() {
         return ID_Cassette;
@@ -41,11 +41,11 @@ public class Cassette {
         Name = name;
     }
 
-    public String getProducer() {
-        return Producer;
+    public String getDirector() {
+        return Director;
     }
-    public void setProducer(String producer) {
-        Producer = producer;
+    public void setDirector(String director) {
+        Director = director;
     }
 
     public String getPrice() {
@@ -61,4 +61,7 @@ public class Cassette {
     public void setExist(boolean exist) {
         Exist = exist;
     }
+
+    public int getYear() { return Year; }
+    public void setYear(int year) { Year = year; }
 }

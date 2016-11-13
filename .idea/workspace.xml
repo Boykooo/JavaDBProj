@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Удаление договора">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Правки удаления договора">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Screens/CassetteScreen/CassetteController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/dec2a76b-caed-4b98-8813-b326b630940c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/dec2a76b-caed-4b98-8813-b326b630940c.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java" afterPath="$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBController/DBController.java" afterPath="$PROJECT_DIR$/src/DBController/DBController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" afterPath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,6 +40,30 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - videorental@91.202.20.14" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - videorental@91.202.20.14" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="cassette" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="DebuggerManager">
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
@@ -80,39 +109,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DBController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="211" column="38" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="38" />
+            <state relative-caret-position="374">
+              <caret line="158" column="117" selection-start-line="158" selection-start-column="117" selection-end-line="158" selection-end-column="117" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#DBController#0;class#DBController#0" expanded="false" />
                 <element signature="method#getDB#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
                 <element signature="method#deleteCortege#0;class#DBController#0" expanded="false" />
-                <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
-                <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewEmployee#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
                 <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-                <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
-                <marker date="1479040601052" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
+                <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
+                <element signature="method#deleteAgreement#0;class#DBController#0" expanded="false" />
+                <element signature="method#parseDate#0;class#DBController#0" expanded="false" />
+                <element signature="method#checkFreeFilmName#0;class#DBController#0" expanded="false" />
+                <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
+                <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
+                <marker date="1479045219067" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteAgreementScreen.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
+      <file leaf-file-name="Cassette.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="34">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <element signature="method#Cassette#0;class#Cassette#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,39 +150,30 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+            <state relative-caret-position="587">
+              <caret line="156" column="50" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="50" />
               <folding>
                 <element signature="method#initialize#0;class#MainController#0" expanded="false" />
                 <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
-                <element signature="e#1875#1876#0" expanded="true" />
-                <element signature="e#1915#1916#0" expanded="true" />
                 <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
                 <element signature="method#showTable#0;class#MainController#0" expanded="false" />
                 <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
                 <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
-                <element signature="method#getItemsCassette#0;class#MainController#0" expanded="false" />
                 <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AgreementController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-              <folding>
-                <element signature="method#initialize#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#click_AddNewAgreement#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#click_DeleteAgreement#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#checkInputAddData#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#checkInputDeleteData#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#checkFilmlsIDSyntax#0;class#AgreementController#0" expanded="false" />
-                <element signature="method#checkIntegerSyntax#0;class#AgreementController#0" expanded="false" />
-                <marker date="1479040637834" expanded="true" signature="1565:1917" ph="..." />
-              </folding>
+      <file leaf-file-name="NewCassetteScreen.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="972">
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,8 +184,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -192,7 +213,6 @@
         <option value="$PROJECT_DIR$/src/Interfaces/IController.java" />
         <option value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/ResultSetImpl.class" />
         <option value="$PROJECT_DIR$/src/DBController/BaseClasses/Employee.java" />
-        <option value="$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java" />
         <option value="dbtable:/633b412a/dec2a76b-caed-4b98-8813-b326b630940c/videorental.agreement" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/dec2a76b-caed-4b98-8813-b326b630940c/console_1.sql" />
         <option value="$PROJECT_DIR$/src/DBController/BaseClasses/Agreement.java" />
@@ -205,14 +225,17 @@
         <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployee.fxml" />
         <option value="$PROJECT_DIR$/src/Screens/MainScreen/MainScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Interfaces/IMainController.java" />
-        <option value="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AbstractController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
         <option value="$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/DBController/DBController.java" />
         <option value="$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java" />
+        <option value="$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java" />
+        <option value="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
+        <option value="$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/Screens/CassetteScreen/CassetteController.java" />
+        <option value="$PROJECT_DIR$/src/DBController/DBController.java" />
       </list>
     </option>
   </component>
@@ -295,78 +318,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaDBProj" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AgreementScreen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
@@ -869,7 +821,7 @@
       <workItem from="1478714134433" duration="5456000" />
       <workItem from="1478730602308" duration="9622000" />
       <workItem from="1478971582417" duration="7888000" />
-      <workItem from="1479040024965" duration="632000" />
+      <workItem from="1479040024965" duration="5224000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1478478774783</created>
@@ -913,15 +865,22 @@
       <option name="project" value="LOCAL" />
       <updated>1478981462532</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Правки удаления договора">
+      <created>1479040671882</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1479040671882</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81726000" />
+    <option name="totallyTimeSpent" value="86318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -931,22 +890,22 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294621" sideWeight="0.4939759" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20852534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2546083" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2546083" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20293398" sideWeight="0.5552995" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21088019" sideWeight="0.48795182" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20293398" sideWeight="0.5552995" order="9" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21088019" sideWeight="0.48795182" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4939759" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23732719" sideWeight="0.5" order="14" side_tool="false" content_ui="combo" x="31" y="767" width="1630" height="197" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31682026" sideWeight="0.5" order="14" side_tool="false" content_ui="combo" x="31" y="767" width="1630" height="197" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -993,11 +952,12 @@
     <MESSAGE value="Немножко поменял архитектуру проекта, рефакторинг" />
     <MESSAGE value="Добавление нового договора в базу" />
     <MESSAGE value="Удаление договора" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удаление договора" />
+    <MESSAGE value="Правки удаления договора" />
+    <option name="LAST_COMMIT_MESSAGE" value="Правки удаления договора" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="129" />
+      <option name="time" value="142" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1006,32 +966,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
-            <element signature="method#showTable#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsCassette#0;class#MainController#0" expanded="false" />
-            <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1054,19 +988,21 @@
         <state relative-caret-position="391">
           <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#DBController#0;class#DBController#0" expanded="false" />
             <element signature="method#getDB#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
             <element signature="method#deleteCortege#0;class#DBController#0" expanded="false" />
-            <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
-            <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewEmployee#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
             <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
-            <marker date="1479040601052" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
+            <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
+            <element signature="method#deleteAgreement#0;class#DBController#0" expanded="false" />
+            <element signature="method#parseDate#0;class#DBController#0" expanded="false" />
+            <element signature="method#checkFreeFilmName#0;class#DBController#0" expanded="false" />
+            <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
+            <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
+            <marker date="1479045219067" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
           </folding>
         </state>
       </provider>
@@ -1088,13 +1024,10 @@
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsCassette#0;class#MainController#0" expanded="false" />
             <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
           </folding>
         </state>
@@ -1131,13 +1064,10 @@
           <folding>
             <element signature="method#initialize#0;class#MainController#0" expanded="false" />
             <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
             <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
             <element signature="method#showTable#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
             <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsCassette#0;class#MainController#0" expanded="false" />
             <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
           </folding>
         </state>
@@ -1211,13 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DBController/BaseClasses/Agreement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1276,6 +1199,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding>
+            <element signature="e#3264#3265#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1283,6 +1209,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="347" column="35" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1346,6 +1273,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1356,13 +1284,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1370,6 +1292,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="1773" column="0" selection-start-line="1773" selection-start-column="0" selection-end-line="1773" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1391,62 +1314,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="211" column="38" selection-start-line="211" selection-start-column="38" selection-end-line="211" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#DBController#0;class#DBController#0" expanded="false" />
-            <element signature="method#getDB#0;class#DBController#0" expanded="false" />
-            <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
-            <element signature="method#deleteCortege#0;class#DBController#0" expanded="false" />
-            <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
-            <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
-            <element signature="method#addNewEmployee#0;class#DBController#0" expanded="false" />
-            <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
-            <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#getIntValue#0;class#DBController#0" expanded="false" />
-            <marker date="1479040601052" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-          <folding>
-            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
-            <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
-            <element signature="method#showTable#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
-            <element signature="method#getItemsCassette#0;class#MainController#0" expanded="false" />
-            <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/AgreementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="253">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding>
             <element signature="method#initialize#0;class#AgreementController#0" expanded="false" />
             <element signature="method#click_AddNewAgreement#0;class#AgreementController#0" expanded="false" />
@@ -1456,6 +1327,132 @@
             <element signature="method#checkFilmlsIDSyntax#0;class#AgreementController#0" expanded="false" />
             <element signature="method#checkIntegerSyntax#0;class#AgreementController#0" expanded="false" />
             <marker date="1479040637834" expanded="true" signature="1565:1917" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/EmployeeScreen/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="57" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="57" />
+          <folding>
+            <element signature="method#click_AddButton#0;class#EmployeeController#0" expanded="false" />
+            <element signature="method#click_DeleteButton#0;class#EmployeeController#0" expanded="false" />
+            <element signature="method#checkDeleteData#0;class#EmployeeController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="265" selection-start-line="10" selection-start-column="265" selection-end-line="10" selection-end-column="265" />
+          <folding>
+            <element signature="n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Button#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Button#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#TextField#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#TextField#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#TextField#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#TextField#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#TextField#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#TextField#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#2;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#3;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#3;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#4;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#4;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#DatePicker#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#DatePicker#1;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#5;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#5;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#ChoiceBox#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#items#0;n#ChoiceBox#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#Label#6;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#Label#6;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#TextField#4;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+            <element signature="n#font#0;n#TextField#4;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBController/BaseClasses/Cassette.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="method#Cassette#0;class#Cassette#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/CassetteScreen/CassetteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="method#initialize#0;class#CassetteController#0" expanded="false" />
+            <element signature="method#checkIntegerSyntax#0;class#CassetteController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/MainScreen/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="156" column="50" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="50" />
+          <folding>
+            <element signature="method#initialize#0;class#MainController#0" expanded="false" />
+            <element signature="method#click_deleteButton#0;class#MainController#0" expanded="false" />
+            <element signature="method#updateCortege#0;class#MainController#0" expanded="false" />
+            <element signature="method#showTable#0;class#MainController#0" expanded="false" />
+            <element signature="method#getItemsEmployee#0;class#MainController#0" expanded="false" />
+            <element signature="method#getItemsAgreement#0;class#MainController#0" expanded="false" />
+            <element signature="method#showScreen#0;class#MainController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="158" column="117" selection-start-line="158" selection-start-column="117" selection-end-line="158" selection-end-column="117" />
+          <folding>
+            <element signature="method#DBController#0;class#DBController#0" expanded="false" />
+            <element signature="method#getDB#0;class#DBController#0" expanded="false" />
+            <element signature="method#addNewCortege#0;class#DBController#0" expanded="false" />
+            <element signature="method#deleteCortege#0;class#DBController#0" expanded="false" />
+            <element signature="method#addNewEmployee#0;class#DBController#0" expanded="false" />
+            <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
+            <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
+            <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
+            <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
+            <element signature="method#deleteAgreement#0;class#DBController#0" expanded="false" />
+            <element signature="method#parseDate#0;class#DBController#0" expanded="false" />
+            <element signature="method#checkFreeFilmName#0;class#DBController#0" expanded="false" />
+            <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
+            <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
+            <marker date="1479045219067" expanded="false" signature="809:823" ph="Select * fro... missingValue" />
           </folding>
         </state>
       </provider>
