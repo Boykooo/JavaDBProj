@@ -337,16 +337,18 @@ public class DBController {
             PreparedStatement request = conn.prepareStatement(req);
             request.setString(1, newPhone);
             request.setString(2, newName);
-            int k = Integer.parseInt(id);
             request.setString(3, id);
 
-            int updateEXP_done = request.executeUpdate();
+            request.executeUpdate();
 
             request.close();
         }
         catch (Exception  ex){
             view.showAlert("Ошибка при обновлении значений сотрудника");
         }
+    }
+    private void updateAgreement(){
+
     }
 
     //Вспомогательные функции
