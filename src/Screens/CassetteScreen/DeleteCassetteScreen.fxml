@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="161.0" minWidth="351.0" prefHeight="413.0" prefWidth="374.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.CassetteScreen.CassetteController">
+   <children>
+      <Label layoutX="32.0" layoutY="41.0" prefHeight="27.0" prefWidth="20.0" text="ID">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="86.0" text="Genre">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="130.0" text="Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="176.0" text="Director">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="220.0" text="Price">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="265.0" text="Year">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="box_deleteExistChoice" layoutX="161.0" layoutY="313.0" prefHeight="25.0" prefWidth="85.0" />
+      <Label layoutX="98.0" layoutY="312.0" text="Exist = ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="box_deleteIDChoice" layoutX="56.0" layoutY="42.0" prefHeight="25.0" prefWidth="42.0" />
+      <Button fx:id="deleteButton" layoutX="75.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#click_DeleteButton" prefHeight="39.0" prefWidth="224.0" text="Delete">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="box_deleteID" layoutX="107.0" layoutY="35.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="box_deleteGenre" layoutX="107.0" layoutY="80.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="box_deleteName" layoutX="107.0" layoutY="124.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="box_deleteDirector" layoutX="107.0" layoutY="169.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="box_deletePrice" layoutX="107.0" layoutY="214.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="box_deleteYear" layoutX="107.0" layoutY="259.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <ChoiceBox fx:id="box_deleteYearChoice" layoutX="56.0" layoutY="266.0" prefHeight="25.0" prefWidth="42.0" />
+   </children>
+</AnchorPane>

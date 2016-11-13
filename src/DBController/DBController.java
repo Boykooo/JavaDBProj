@@ -85,13 +85,22 @@ public class DBController {
                         );
                 break;
             case "cassette":
+                deleteCassette(
+                        params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        params[4].toString(),
+                        params[5].toString(),
+                        params[6].toString(),
+                        params[7].toString(),
+                        params[8].toString()
+                );
                 break;
             default:
                 break;
         }
     }
-
-
 
     //Добавление в базу
     private void addNewEmployee(String name, String phone){
@@ -244,6 +253,46 @@ public class DBController {
             view.showAlert("Ошибка при удалении договора из базы");
         }
     }
+    private void deleteCassette(String id, String idSign, String genre, String name, String director, String price, String year, String yearSign, String exist){
+        if (!checkSign(idSign) || !checkSign(yearSign))
+        {
+            view.showAlert("Попытка sql-инъекции!");
+            return;
+        }
+
+        String req = "delete from cassette where " +
+                "(ID_Cassette " + idSign +" ? or ? = '') and " +
+                "(Genre = ? or ? = '') and " +
+                "(Name = ? or ? = '') and " +
+                "(Director = ? or ? = '') and " +
+                "(Price = ? or ? = '') and " +
+                "(Exist = ? or ? = '') and " +
+                "(Year " + yearSign +" ? or ? = '')";
+        try
+        {
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, id);
+            request.setString(2, id);
+            request.setString(3, genre);
+            request.setString(4, genre);
+            request.setString(5, name);
+            request.setString(6, name);
+            request.setString(7, director);
+            request.setString(8, director);
+            request.setString(9, price);
+            request.setString(10, price);
+            request.setString(11, getBoolean(exist));
+            request.setString(12, getBoolean(exist));
+            request.setString(13, year);
+            request.setString(14, year);
+
+            request.executeUpdate();
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка при удалении кассеты из базы");
+        }
+    }
+
 
     //Вспомогательные функции
     private Date parseDate(String date) throws ParseException {
@@ -264,6 +313,16 @@ public class DBController {
     }
     private int getInteger(String str){
         return str.isEmpty() ? -1 : Integer.parseInt(str);
+    }
+    private String getBoolean(String bool){
+        switch (bool){
+            case "true":
+                return "1";
+            case "false":
+                return "0";
+            default:
+                return "";
+        }
     }
     private boolean checkFreeFilmName(String name){
 
