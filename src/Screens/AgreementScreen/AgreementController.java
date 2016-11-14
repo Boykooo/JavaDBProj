@@ -138,7 +138,7 @@ public class AgreementController extends AbstractController implements Initializ
     }
 
     @Override
-    public void setLabel(Object... objects) {
+    public void setTextField(Object... objects) {
         label_ID.setText(objects[0].toString());
         box_updateClientName.setText(objects[1].toString());
         box_updateClientPhone.setText(objects[2].toString());

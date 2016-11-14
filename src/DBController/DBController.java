@@ -118,6 +118,15 @@ public class DBController {
                 );
                 break;
             case "cassette":
+                updateCassette(
+                        params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        params[4].toString(),
+                        params[5].toString(),
+                        params[6].toString()
+                );
 
                 break;
             default:
@@ -391,6 +400,41 @@ public class DBController {
             view.showAlert("Ошибка при обновлении значений договора");
         }
     }
+    private void updateCassette(String newGenre, String newName, String newDirector, String newPrice, String newExist, String newYear, String id){
+
+        if (!checkFreeUpdateValue("select * from cassette where Name = ? and ID_Cassette != ?", newName, id)){
+            view.showAlert("Данное имя уже в базе");
+            return;
+        }
+
+        try{
+
+            String req = "update cassette set  " +
+                    "Genre = ?, " +
+                    "Name = ?, " +
+                    "Director = ?, " +
+                    "Price = ?, " +
+                    "Exist = ?, " +
+                    "Year = ? " +
+                    "where ID_Cassette = ?";
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, newGenre);
+            request.setString(2, newName);
+            request.setString(3, newDirector);
+            request.setString(4, newPrice);
+            request.setString(5, getBoolean(newExist));
+            request.setString(6, newYear);
+            request.setString(7, id);
+
+            request.executeUpdate();
+
+            request.close();
+        }
+        catch (Exception  ex){
+            view.showAlert("Ошибка при обновлении значений кассеты");
+        }
+    }
+
 
     //Вспомогательные функции
     private Date parseDate(String date) throws ParseException {

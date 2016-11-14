@@ -83,7 +83,7 @@ public class EmployeeController extends AbstractController implements Initializa
     }
 
     @Override
-    public void setLabel(Object... objects){
+    public void setTextField(Object... objects){
         box_updateName.setText(objects[0].toString());
         box_updatePhone.setText(objects[1].toString());
         label_ID.setText(objects[2].toString());

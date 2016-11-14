@@ -121,8 +121,7 @@
       <unique>1</unique>
     </index>
     <key id="37" parent="9" name="PRIMARY">
-      <columns>ID_Cassette
-Exist</columns>
+      <columns>ID_Cassette</columns>
       <primary>1</primary>
     </key>
     <key id="38" parent="9" name="Name_UNIQUE">

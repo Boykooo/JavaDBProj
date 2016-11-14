@@ -22,7 +22,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainController extends AbstractController implements IMainController, Initializable {
@@ -87,13 +86,13 @@ public class MainController extends AbstractController implements IMainControlle
 
         try {
 
-            Object[] objects = getLabelData(choiceDBBOX.getSelectionModel().getSelectedItem());
+            Object[] objects = getBoxFieldData(choiceDBBOX.getSelectionModel().getSelectedItem());
 
             String fileName = choiceDBBOX.getSelectionModel().getSelectedItem();
             String path = MessageFormat.format("../{0}Screen/Update{1}Screen.fxml", fileName, fileName);
             showScreen(path);
 
-            children.setLabel(objects);
+            children.setTextField(objects);
 
         } catch (Exception e) {
             showAlert("Выберете строку, которую хотите изменить");
@@ -192,7 +191,7 @@ public class MainController extends AbstractController implements IMainControlle
         return list;
     }
 
-    private Object[] getLabelData(String tableName) {
+    private Object[] getBoxFieldData(String tableName) {
         Object[] label = null;
 
         switch (tableName) {
@@ -220,7 +219,8 @@ public class MainController extends AbstractController implements IMainControlle
                         cassette.getDirector(),
                         cassette.getPrice(),
                         cassette.getExist(),
-                        cassette.getYear()
+                        cassette.getYear(),
+                        cassette.getID_Cassette()
                 };
                 return label;
             default:

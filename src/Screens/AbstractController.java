@@ -24,7 +24,7 @@ public abstract class AbstractController {
         this.parent = parent;
     }
 
-    public void setLabel(Object... objects) { }
+    public void setTextField(Object... objects) { }
     protected void closeWindow(Button btn){
         Stage stage = (Stage) btn.getScene().getWindow();
         stage.close();
