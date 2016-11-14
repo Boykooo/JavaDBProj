@@ -107,7 +107,15 @@ public class DBController {
                 updateEmployee(params[0].toString(), params[1].toString(), params[2].toString());
                 break;
             case "agreement":
-
+                updateAgreement(
+                        params[0].toString(),
+                        params[1].toString(),
+                        params[2].toString(),
+                        params[3].toString(),
+                        params[4].toString(),
+                        params[5].toString(),
+                        params[6].toString()
+                );
                 break;
             case "cassette":
 
@@ -333,7 +341,7 @@ public class DBController {
 
         try{
 
-            String req = "update videorental.employee set Phone_Number = ?, Name = ? where ID_Employee = ?";
+            String req = "update employee set Phone_Number = ?, Name = ? where ID_Employee = ?";
             PreparedStatement request = conn.prepareStatement(req);
             request.setString(1, newPhone);
             request.setString(2, newName);
@@ -347,8 +355,41 @@ public class DBController {
             view.showAlert("Ошибка при обновлении значений сотрудника");
         }
     }
-    private void updateAgreement(){
+    private void updateAgreement(String newName, String newPhone, String newTotalPrice, String newOrderDate, String newIdEmployee, String newLastReturnDay, String id){
 
+        if (!checkFreeUpdateValue("select * from agreement where Client_Phone_Number = ? and ID_Agreement != ?", newPhone, id))
+        {
+            view.showAlert("Данный телефон занят");
+            return;
+        }
+
+        try{
+
+            String req = "update agreement set  " +
+                    "Client_Name = ?, " +
+                    "Client_Phone_Number = ?, " +
+                    "Total_Price = ?, " +
+                    "Order_Date = ?, " +
+                    "ID_Employee = ?, " +
+                    "Last_Return_Date = ? " +
+                    "where ID_Agreement = ?";
+
+            PreparedStatement request = conn.prepareStatement(req);
+            request.setString(1, newName);
+            request.setString(2, newPhone);
+            request.setString(3, newTotalPrice);
+            request.setDate(4, parseDate(newOrderDate));
+            request.setString(5, newIdEmployee);
+            request.setDate(6, parseDate(newLastReturnDay));
+            request.setString(7, id);
+
+            request.executeUpdate();
+
+            request.close();
+        }
+        catch (Exception  ex){
+            view.showAlert("Ошибка при обновлении значений договора");
+        }
     }
 
     //Вспомогательные функции

@@ -208,7 +208,8 @@ public class MainController extends AbstractController implements IMainControlle
                         agreement.getClient_Phone_Number(),
                         agreement.getTotal_Price(),
                         agreement.getOrder_Date(),
-                        agreement.getLast_Return_Date()
+                        agreement.getLast_Return_Date(),
+                        agreement.getID_Employee()
                 };
                 return label;
             case "Cassette":
