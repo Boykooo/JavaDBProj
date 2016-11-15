@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -25,6 +26,7 @@ import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 public class MainController extends AbstractController implements IMainController, Initializable {
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,6 +42,9 @@ public class MainController extends AbstractController implements IMainControlle
     private ChoiceBox<String> choiceDBBOX;
     @FXML
     private TableView<Object> dbBox;
+    @FXML
+    private Button showSpecificAgreement;
+
 
     @Override
     public void addCortege(Object... params) {
@@ -97,6 +102,11 @@ public class MainController extends AbstractController implements IMainControlle
         } catch (Exception e) {
             showAlert("Выберете строку, которую хотите изменить");
         }
+    }
+
+    @FXML
+    private void click_GetClientCasseteButton() {
+
     }
 
     private void showTable(String dbName) {
@@ -246,6 +256,9 @@ public class MainController extends AbstractController implements IMainControlle
         }
     }
 
+
+    public void click_ShowAgreement(MouseEvent mouseEvent) {
+    }
 }
 
 

@@ -46,7 +46,7 @@
          </font>
       </Label>
       <ChoiceBox fx:id="box_deleteIDChoice" layoutX="56.0" layoutY="42.0" prefHeight="25.0" prefWidth="42.0" />
-      <Button fx:id="deleteButton" layoutX="75.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#click_DeleteButton" prefHeight="39.0" prefWidth="224.0" text="Delete">
+      <Button fx:id="deleteButton" layoutX="75.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#click_DeleteButton" prefHeight="39.0" prefWidth="224.0" text="Удалить">
          <font>
             <Font size="18.0" />
          </font>

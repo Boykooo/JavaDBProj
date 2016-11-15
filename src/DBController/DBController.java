@@ -1,11 +1,14 @@
 package DBController;
 
 import Screens.AbstractController;
+import com.mysql.fabric.ServerRole;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class DBController {
@@ -133,25 +136,43 @@ public class DBController {
                 break;
         }
     }
+    public void getSpecificAgreement(String phone){
+
+    }
 
     //Добавление в базу
     private void addNewEmployee(String name, String phone){
+        PreparedStatement request = null;
         try{
-            PreparedStatement request = conn.prepareStatement("INSERT INTO employee (Name, Phone_Number) VALUES (?, ?)");
+            request = conn.prepareStatement("INSERT INTO employee (Name, Phone_Number) VALUES (?, ?)");
             request.setString(1, name);
             request.setString(2, phone);
 
             request.executeUpdate();
-            request.close();
         }
         catch (SQLException ex){
             view.showAlert("Ошибка при добавлении нового сотрудника");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    private void addNewAgreement(String clientName, String clientPhone, String totalPrice, String filmsID, String orderDate, String returnDate, String employeeID){
+    private void addNewAgreement(String clientName, String clientPhone, String totalPrice,
+                                 String filmsID, String orderDate, String returnDate, String employeeID){
+
+        if (!checkFilmsID(filmsID)){
+            view.showAlert("Некорректные id фильмов");
+            return;
+        }
+
+        PreparedStatement request = null;
         try{
             String req = "INSERT INTO agreement (Client_Name, Client_Phone_Number, Total_Price, Order_Date, ID_Employee, Last_Return_Date) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, clientName);
             request.setString(2, clientPhone);
             request.setString(3, totalPrice);
@@ -172,19 +193,28 @@ public class DBController {
 
             addAgrAndCassette(idAgreement, filmsID);
 
-            request.close();
+            changeExistCassette(filmsID.split(","), false);
+
         }
         catch (Exception  ex){
             view.showAlert("Ошибка при добавлении нового договора");
+        }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     private void addAgrAndCassette(String idAgreement, String filmsID){
         String[] cassettes = filmsID.split(",");
         String req = "INSERT INTO cassette_rentals (ID_Agreement, ID_Cassette) VALUES (?, ?)";
 
+        PreparedStatement request = null;
         try
         {
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
 
             int idAgr = Integer.parseInt(idAgreement);
 
@@ -195,11 +225,18 @@ public class DBController {
                 request.setInt(2, Integer.parseInt(cassette));
                 request.executeUpdate();
 
-                request.close();
             }
+
         }
         catch (Exception e){
             view.showAlert("Ошибка при добавлении в базу cassette_rentals");
+        }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     private void addNewCassette(String genre, String name, String director, String price, boolean exist, String year){
@@ -211,10 +248,11 @@ public class DBController {
             return;
         }
 
+        PreparedStatement request = null;
         try{
 
             String req = "INSERT INTO cassette (Genre, Name, Director, Price, Exist, Year) values(?,?,?,?,?,?)";
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, genre);
             request.setString(2, name);
             request.setString(3, director);
@@ -230,12 +268,26 @@ public class DBController {
         catch (Exception  ex){
             view.showAlert("Ошибка при добавлении новой кассеты");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //Удаление из базы
     private void deleteEmployee(String id, String sign, String name, String phone){
 
-        String req = "delete from employee where (ID_Employee = ? or ? = '') and (Name = ? or ? = '') and (Phone_Number = ? or ? = '')";
+        if (!checkSign(sign))
+        {
+            view.showAlert("Попытка sql-инъекции!");
+            return;
+        }
+
+        PreparedStatement request = null;
+        String req = "delete from employee where (ID_Employee " + sign + " ? or ? = '') and (Name = ? or ? = '') and (Phone_Number = ? or ? = '')";
         try{
             PreparedStatement request = conn.prepareStatement(req);
 
@@ -248,19 +300,25 @@ public class DBController {
 
             request.executeUpdate();
 
-            request.close();
         }
         catch (SQLException e){
             view.showAlert("Ошибка при удалении кортежа");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    private void deleteAgreement(String id, String clientName, String clientPhone, String totalPrice, String sign, String employeeID , String orderDate, String returnDate){
+    private void deleteAgreement(String id, String clientName, String clientPhone,
+                                 String totalPrice, String sign, String employeeID , String orderDate, String returnDate){
         if (!checkSign(sign))
         {
             view.showAlert("Попытка sql-инъекции!");
             return;
         }
-
 
         String req = "delete from agreement where " +
                 "(ID_Agreement = ? or ? = '') and " +
@@ -270,9 +328,10 @@ public class DBController {
                 "(Order_Date = ? or isnull(?)) " +
                 "and (ID_Employee = ? or ? = '') and " +
                 "(Last_Return_Date = ? or isnull(?))";
+        PreparedStatement request = null;
         try
         {
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, id);
             request.setString(2, id);
             request.setString(3, clientName);
@@ -291,13 +350,54 @@ public class DBController {
 
             request.executeUpdate();
 
+
+
             request.close();
         }
         catch (Exception e){
             view.showAlert("Ошибка при удалении договора из базы");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    private void deleteCassette(String id, String idSign, String genre, String name, String director, String price, String year, String yearSign, String exist){
+    private void freeCassettes(){
+
+        PreparedStatement request = null;
+        try {
+            String req = "select ID_Cassette from cassette_rentals where ID_Agreement = " +
+                    "(select ID_Agreement from agreement where Client_Phone_Number = ?)";
+            request = conn.prepareStatement(req);
+            request.setString(1, clientPhone);
+
+            ResultSet result = request.executeQuery();
+
+            ArrayList<String> temp = new ArrayList<>();
+
+            while (result.next()){
+                temp.add(String.valueOf(result.getInt("ID_Cassette")));
+            }
+
+            changeExistCassette(temp.toArray(), true);
+        }
+        catch (Exception c){
+            view.showAlert("Ошибка при удалении договора: освобождение кассет");
+        }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+    private void deleteCassette(String id, String idSign, String genre, String name,
+                                String director, String price, String year, String yearSign, String exist){
         if (!checkSign(idSign) || !checkSign(yearSign))
         {
             view.showAlert("Попытка sql-инъекции!");
@@ -312,9 +412,10 @@ public class DBController {
                 "(Price = ? or ? = '') and " +
                 "(Exist = ? or ? = '') and " +
                 "(Year " + yearSign +" ? or ? = '')";
+        PreparedStatement request = null;
         try
         {
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, id);
             request.setString(2, id);
             request.setString(3, genre);
@@ -331,11 +432,16 @@ public class DBController {
             request.setString(14, year);
 
             request.executeUpdate();
-
-            request.close();
         }
         catch (Exception e){
             view.showAlert("Ошибка при удалении кассеты из базы");
+        }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -348,23 +454,29 @@ public class DBController {
             return;
         }
 
+        PreparedStatement request = null;
         try{
-
             String req = "update employee set Phone_Number = ?, Name = ? where ID_Employee = ?";
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, newPhone);
             request.setString(2, newName);
             request.setString(3, id);
 
             request.executeUpdate();
-
-            request.close();
         }
         catch (Exception  ex){
             view.showAlert("Ошибка при обновлении значений сотрудника");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    private void updateAgreement(String newName, String newPhone, String newTotalPrice, String newOrderDate, String newIdEmployee, String newLastReturnDay, String id){
+    private void updateAgreement(String newName, String newPhone, String newTotalPrice,
+                                 String newOrderDate, String newIdEmployee, String newLastReturnDay, String id){
 
         if (!checkFreeUpdateValue("select * from agreement where Client_Phone_Number = ? and ID_Agreement != ?", newPhone, id))
         {
@@ -372,18 +484,18 @@ public class DBController {
             return;
         }
 
+        String req = "update agreement set  " +
+                "Client_Name = ?, " +
+                "Client_Phone_Number = ?, " +
+                "Total_Price = ?, " +
+                "Order_Date = ?, " +
+                "ID_Employee = ?, " +
+                "Last_Return_Date = ? " +
+                "where ID_Agreement = ?";
+        PreparedStatement request = null;
         try{
 
-            String req = "update agreement set  " +
-                    "Client_Name = ?, " +
-                    "Client_Phone_Number = ?, " +
-                    "Total_Price = ?, " +
-                    "Order_Date = ?, " +
-                    "ID_Employee = ?, " +
-                    "Last_Return_Date = ? " +
-                    "where ID_Agreement = ?";
-
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
             request.setString(1, newName);
             request.setString(2, newPhone);
             request.setString(3, newTotalPrice);
@@ -399,25 +511,35 @@ public class DBController {
         catch (Exception  ex){
             view.showAlert("Ошибка при обновлении значений договора");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-    private void updateCassette(String newGenre, String newName, String newDirector, String newPrice, String newExist, String newYear, String id){
+    private void updateCassette(String newGenre, String newName, String newDirector,
+                                String newPrice, String newExist, String newYear, String id){
 
         if (!checkFreeUpdateValue("select * from cassette where Name = ? and ID_Cassette != ?", newName, id)){
             view.showAlert("Данное имя уже в базе");
             return;
         }
 
+        String req = "update cassette set  " +
+                "Genre = ?, " +
+                "Name = ?, " +
+                "Director = ?, " +
+                "Price = ?, " +
+                "Exist = ?, " +
+                "Year = ? " +
+                "where ID_Cassette = ?";
+        PreparedStatement request = null;
         try{
 
-            String req = "update cassette set  " +
-                    "Genre = ?, " +
-                    "Name = ?, " +
-                    "Director = ?, " +
-                    "Price = ?, " +
-                    "Exist = ?, " +
-                    "Year = ? " +
-                    "where ID_Cassette = ?";
-            PreparedStatement request = conn.prepareStatement(req);
+
+            request = conn.prepareStatement(req);
             request.setString(1, newGenre);
             request.setString(2, newName);
             request.setString(3, newDirector);
@@ -433,8 +555,40 @@ public class DBController {
         catch (Exception  ex){
             view.showAlert("Ошибка при обновлении значений кассеты");
         }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    //Информация из базы
+    private ResultSet getAgreementCassettes(String phone){
+
+        ResultSet result = null;
+        PreparedStatement request = null;
+        String req = "select * from ";
+        try{
+
+            request = conn.prepareStatement(req);
+
+            return request.executeQuery();
+        }
+        catch (Exception e){
+
+        }
+        finally {
+            try {
+                request.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return result;
+    }
 
     //Вспомогательные функции
     private Date parseDate(String date) throws ParseException {
@@ -476,7 +630,8 @@ public class DBController {
             ResultSet res = request.executeQuery();
             res.last();
             count = res.getRow();
-            System.out.printf(String.valueOf(count));
+
+            request.close();
         }
         catch (Exception e)
         {
@@ -495,13 +650,56 @@ public class DBController {
             ResultSet res = request.executeQuery();
             res.last();
             count = res.getRow();
-            System.out.printf(String.valueOf(count));
+
+            request.close();
         }
         catch (Exception e)
         {
             view.showAlert("Ошибка в проверке свободного значения - " + value);
         }
         return count == 0;
+    }
+    private boolean checkFilmsID(String filmsID){
+        try
+        {
+            String[] films = filmsID.split(",");
+            String req = "select * from cassette where ID_Cassette = ?";
+            PreparedStatement request = conn.prepareStatement(req);
+
+            int count;
+            for (String film : films){
+                request.setString(1, film);
+                ResultSet temp = request.executeQuery();
+                temp.last();
+                count = temp.getRow();
+                if (count == 0)
+                    return false;
+            }
+
+            request.close();
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка в проверке корректности id фильмов");
+        }
+        return true;
+    }
+    private void changeExistCassette(Object[] films, boolean exist){
+        try
+        {
+            String req = "update cassette set Exist = ? where ID_Cassette = ?";
+            PreparedStatement request = conn.prepareStatement(req);
+
+            for (Object film : films){
+                request.setBoolean(1, exist);
+                request.setString(2, film.toString());
+                request.executeUpdate();
+            }
+
+            request.close();
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка при обновлении поля Exist в таблице Cassette");
+        }
     }
 
     private void attachDB(){
@@ -531,3 +729,26 @@ public class DBController {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

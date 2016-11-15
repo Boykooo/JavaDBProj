@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="161.0" minWidth="351.0" prefHeight="367.0" prefWidth="394.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.CassetteScreen.CassetteController">
    <children>
-      <Button fx:id="addButton" layoutX="100.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#click_AddButton" prefHeight="39.0" prefWidth="195.0" text="Add">
+      <Button fx:id="addButton" layoutX="100.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#click_AddButton" prefHeight="39.0" prefWidth="195.0" text="Добавить">
          <font>
             <Font size="18.0" />
          </font></Button>

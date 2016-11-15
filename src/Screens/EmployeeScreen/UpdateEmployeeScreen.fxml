@@ -18,7 +18,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="updateButton" layoutX="70.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#click_UpdateButton" prefHeight="39.0" prefWidth="208.0" text="Update">
+      <Button fx:id="updateButton" layoutX="70.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#click_UpdateButton" prefHeight="39.0" prefWidth="208.0" text="Обновить">
          <font>
             <Font size="18.0" />
          </font>
