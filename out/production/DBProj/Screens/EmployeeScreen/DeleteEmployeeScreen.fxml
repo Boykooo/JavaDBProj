@@ -23,7 +23,7 @@
          </font>
       </Label>
       <TextField fx:id="delete_NameBox" layoutX="155.0" layoutY="61.0" />
-      <Button fx:id="deleteButton" layoutX="90.0" layoutY="130.0" mnemonicParsing="false" onMouseClicked="#click_DeleteButton" prefHeight="39.0" prefWidth="198.0" text="Delete">
+      <Button fx:id="deleteButton" layoutX="90.0" layoutY="130.0" mnemonicParsing="false" onMouseClicked="#click_DeleteButton" prefHeight="39.0" prefWidth="198.0" text="Удалить">
          <font>
             <Font size="18.0" />
          </font>

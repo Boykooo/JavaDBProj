@@ -1,14 +1,12 @@
 package DBController;
 
 import Screens.AbstractController;
-import com.mysql.fabric.ServerRole;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class DBController {
@@ -136,8 +134,8 @@ public class DBController {
                 break;
         }
     }
-    public void getSpecificAgreement(String phone){
-
+    public ResultSet getSpecificAgreement(String phone){
+        return getAgreementCassettes(phone);
     }
 
     //Добавление в базу
@@ -566,27 +564,29 @@ public class DBController {
     //Информация из базы
     private ResultSet getAgreementCassettes(String phone){
 
-        ResultSet result = null;
+        ResultSet resultSet = null;
         PreparedStatement request = null;
-        String req = "select * from ";
-        try{
 
+        if (!checkExistValue("select * from agreement where Client_Phone_Number = ?", phone)){
+            view.showAlert("Такой номер не существует");
+            return resultSet;
+        }
+
+        String req = "select * from cassette" +
+                        " where ID_Cassette in" +
+                        "(select ID_Cassette from cassette_rentals where ID_Agreement = " +
+                            "(select ID_Agreement from agreement where Client_Phone_Number = ?) )";
+        try{
             request = conn.prepareStatement(req);
+            request.setString(1, phone);
 
             return request.executeQuery();
         }
         catch (Exception e){
-
-        }
-        finally {
-            try {
-                request.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            view.showAlert("Ошибка в получении данных конкретного договора");
         }
 
-        return result;
+        return resultSet;
     }
 
     //Вспомогательные функции
@@ -620,6 +620,12 @@ public class DBController {
         }
     }
     private boolean checkFreeValue(String req, String name){
+        return checkValue(req, name) == 0;
+    }
+    private boolean checkExistValue(String req, String name){
+        return checkValue(req, name) != 0;
+    }
+    private int checkValue(String req, String name){
         int count = 0;
         try
         {
@@ -634,10 +640,13 @@ public class DBController {
         }
         catch (Exception e)
         {
-            view.showAlert("Ошибка в проверке свободного телефона сотрудника");
+            view.showAlert("Ошибка в проверке значения");
         }
-        return count == 0;
+
+        return count;
     }
+
+
     private boolean checkFreeUpdateValue(String req, String value,  String id){
         int count = 0;
         try

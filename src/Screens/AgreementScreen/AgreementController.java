@@ -77,8 +77,13 @@ public class AgreementController extends AbstractController implements Initializ
     @FXML
     private Label label_ID;
 
+    @FXML
+    public Button specificButton;
+    @FXML
+    public TextField box_specificPhone;
 
-    public void click_AddNewAgreement() {
+    @FXML
+    private void click_AddNewAgreement() {
         if (checkInputAddData()) {
             parent.addCortege(box_clientName.getText(),
                     box_clientPhone.getText(),
@@ -95,7 +100,8 @@ public class AgreementController extends AbstractController implements Initializ
         }
     }
 
-    public void click_DeleteAgreement() {
+    @FXML
+    private void click_DeleteAgreement() {
         if (checkInputDeleteData()) {
             String orderDate = (box_deleteOrderDate.getValue() != null) ? box_deleteOrderDate.getValue().toString() : "";
             String returnDate = (box_deleteReturnDate.getValue() != null) ? box_deleteReturnDate.getValue().toString() : "";
@@ -117,7 +123,8 @@ public class AgreementController extends AbstractController implements Initializ
         }
     }
 
-    public void click_UpdateButton() {
+    @FXML
+    private void click_UpdateButton() {
         if (checkUpdateData()) {
 
             parent.updateCortege(
@@ -129,11 +136,24 @@ public class AgreementController extends AbstractController implements Initializ
                     box_updateLastReturnDate.getValue(),
                     label_ID.getText(),
                     "agreement"
-                    );
+            );
 
             closeWindow(updateButton);
         } else {
 
+        }
+    }
+
+    @FXML
+    private void click_SpecificButton() {
+        if (!box_specificPhone.getText().isEmpty()) {
+
+            parent.showSpecificAgreement(box_specificPhone.getText());
+
+            closeWindow(specificButton);
+
+        } else {
+            showAlert("Введите телефон");
         }
     }
 
@@ -204,6 +224,5 @@ public class AgreementController extends AbstractController implements Initializ
                 && box_updateLastReturnDate.getValue() != null
                 && !box_updateEmployeeID.getText().isEmpty();
     }
-
 
 }

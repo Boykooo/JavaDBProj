@@ -62,6 +62,13 @@ public class MainController extends AbstractController implements IMainControlle
     }
 
     @Override
+    public void showSpecificAgreement(String phone) {
+        ResultSet dbData = db.getSpecificAgreement(phone);
+
+        showTable(dbData, "Cassette");
+    }
+
+    @Override
     public void closeConnection() {
         db.closeConnection();
     }
@@ -105,13 +112,17 @@ public class MainController extends AbstractController implements IMainControlle
     }
 
     @FXML
-    private void click_GetClientCasseteButton() {
-
+    private void click_ShowSpecificAgreement() {
+        showScreen("../AgreementScreen/SpecificAgreementScreen.fxml");
     }
 
     private void showTable(String dbName) {
         ResultSet dbData = db.getDB(dbName.toLowerCase());
 
+        showTable(dbData, dbName);
+        //db.closeConnection();
+    }
+    private void showTable(ResultSet dbData, String dbName){
         if (dbData != null) {
             try {
                 dbBox.getColumns().clear();
@@ -143,8 +154,6 @@ public class MainController extends AbstractController implements IMainControlle
                 showAlert("Ошибка обработки ResultSet");
             }
         }
-
-        //db.closeConnection();
     }
 
     private ObservableList getItemsEmployee(ResultSet setData) {
@@ -257,8 +266,6 @@ public class MainController extends AbstractController implements IMainControlle
     }
 
 
-    public void click_ShowAgreement(MouseEvent mouseEvent) {
-    }
 }
 
 

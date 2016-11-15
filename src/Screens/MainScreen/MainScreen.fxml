@@ -44,7 +44,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="showSpecificAgreement" layoutX="558.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#click_ShowAgreement" prefHeight="66.0" prefWidth="208.0" text="Отобразить договор" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="showSpecificAgreement" layoutX="558.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#click_ShowSpecificAgreement" prefHeight="66.0" prefWidth="208.0" text="Отобразить договор" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="18.0" />
          </font></Button>
