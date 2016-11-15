@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Небольшаярусификация">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/DBController/DBController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/EmployeeController.class" afterPath="$PROJECT_DIR$/out/production/DBProj/Screens/EmployeeScreen/EmployeeController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBController/DBController.java" afterPath="$PROJECT_DIR$/src/DBController/DBController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/DeleteAgreementScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/NewAgreementScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/AgreementScreen/UpdateAgreementScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/AgreementScreen/UpdateAgreementScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/CassetteScreen/DeleteCassetteScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/CassetteScreen/DeleteCassetteScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/CassetteScreen/NewCassetteScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/CassetteScreen/UpdateCassetteScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/CassetteScreen/UpdateCassetteScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/EmployeeScreen/DeleteEmployeeScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/EmployeeScreen/NewEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/EmployeeScreen/NewEmployeeScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/EmployeeScreen/UpdateEmployeeScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/EmployeeScreen/UpdateEmployeeScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" afterPath="$PROJECT_DIR$/src/Screens/MainScreen/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Screens/MainScreen/MainScreen.fxml" afterPath="$PROJECT_DIR$/src/Screens/MainScreen/MainScreen.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,8 +84,8 @@
       <file leaf-file-name="DBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="571" column="36" selection-start-line="571" selection-start-column="36" selection-end-line="571" selection-end-column="36" />
+            <state relative-caret-position="390">
+              <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
               <folding>
                 <element signature="method#DBController#0;class#DBController#0" expanded="false" />
                 <element signature="method#getDB#0;class#DBController#0" expanded="false" />
@@ -108,9 +97,7 @@
                 <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
                 <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
                 <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-                <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
                 <element signature="method#deleteAgreement#0;class#DBController#0" expanded="false" />
-                <element signature="method#freeCassettes#0;class#DBController#0" expanded="false" />
                 <element signature="method#deleteCassette#0;class#DBController#0" expanded="false" />
                 <element signature="method#updateEmployee#0;class#DBController#0" expanded="false" />
                 <element signature="method#updateAgreement#0;class#DBController#0" expanded="false" />
@@ -123,7 +110,7 @@
                 <element signature="method#changeExistCassette#0;class#DBController#0" expanded="false" />
                 <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
                 <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
-                <marker date="1479250116952" expanded="false" signature="898:912" ph="Select * fro... missingValue" />
+                <marker date="1479250147105" expanded="false" signature="898:912" ph="Select * fro... missingValue" />
               </folding>
             </state>
           </provider>
@@ -867,7 +854,7 @@
       <workItem from="1479080458249" duration="4419000" />
       <workItem from="1479084910216" duration="178000" />
       <workItem from="1479141795303" duration="3582000" />
-      <workItem from="1479228265290" duration="14911000" />
+      <workItem from="1479228265290" duration="14944000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1478478774783</created>
@@ -960,11 +947,18 @@
       <option name="project" value="LOCAL" />
       <updated>1479145303225</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Фикс багов">
+      <created>1479250128845</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1479250128845</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127840000" />
+    <option name="totallyTimeSpent" value="127873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -1046,7 +1040,8 @@
     <MESSAGE value="Рефакторинг" />
     <MESSAGE value="Update договора" />
     <MESSAGE value="Update кассеты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update кассеты" />
+    <MESSAGE value="Фикс багов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс багов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1495,8 +1490,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBController/DBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="571" column="36" selection-start-line="571" selection-start-column="36" selection-end-line="571" selection-end-column="36" />
+        <state relative-caret-position="390">
+          <caret line="374" column="0" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
           <folding>
             <element signature="method#DBController#0;class#DBController#0" expanded="false" />
             <element signature="method#getDB#0;class#DBController#0" expanded="false" />
@@ -1508,9 +1503,7 @@
             <element signature="method#addNewAgreement#0;class#DBController#0" expanded="false" />
             <element signature="method#addAgrAndCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#addNewCassette#0;class#DBController#0" expanded="false" />
-            <element signature="method#deleteEmployee#0;class#DBController#0" expanded="false" />
             <element signature="method#deleteAgreement#0;class#DBController#0" expanded="false" />
-            <element signature="method#freeCassettes#0;class#DBController#0" expanded="false" />
             <element signature="method#deleteCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#updateEmployee#0;class#DBController#0" expanded="false" />
             <element signature="method#updateAgreement#0;class#DBController#0" expanded="false" />
@@ -1523,7 +1516,7 @@
             <element signature="method#changeExistCassette#0;class#DBController#0" expanded="false" />
             <element signature="method#attachDB#0;class#DBController#0" expanded="false" />
             <element signature="method#detachDB#0;class#DBController#0" expanded="false" />
-            <marker date="1479250116952" expanded="false" signature="898:912" ph="Select * fro... missingValue" />
+            <marker date="1479250147105" expanded="false" signature="898:912" ph="Select * fro... missingValue" />
           </folding>
         </state>
       </provider>

@@ -289,7 +289,7 @@ public class DBController {
         PreparedStatement request = null;
         String req = "delete from employee where (ID_Employee " + sign + " ? or ? = '') and (Name = ? or ? = '') and (Phone_Number = ? or ? = '')";
         try{
-            PreparedStatement request = conn.prepareStatement(req);
+            request = conn.prepareStatement(req);
 
             request.setString(1, id);
             request.setString(2, id);
@@ -372,7 +372,6 @@ public class DBController {
             String req = "select ID_Cassette from cassette_rentals where ID_Agreement = " +
                     "(select ID_Agreement from agreement where Client_Phone_Number = ?)";
             request = conn.prepareStatement(req);
-            request.setString(1, clientPhone);
 
             ResultSet result = request.executeQuery();
 
