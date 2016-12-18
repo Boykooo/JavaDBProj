@@ -8,7 +8,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
-      <user-name>root</user-name>
+      <user-name>admin</user-name>
       <introspection-scope>videorental:</introspection-scope>
       <resolve-scope>videorental:</resolve-scope>
     </data-source>

@@ -42,8 +42,6 @@ public class MainController extends AbstractController implements IMainControlle
     private ChoiceBox<String> choiceDBBOX;
     @FXML
     private TableView<Object> dbBox;
-    @FXML
-    private Button showSpecificAgreement;
 
 
     @Override
@@ -66,6 +64,49 @@ public class MainController extends AbstractController implements IMainControlle
         ResultSet dbData = db.getSpecificAgreement(phone);
 
         showTable(dbData, "Cassette");
+    }
+
+    @Override
+    public void searchData(Object... params) {
+        switch (params[params.length - 1].toString()) {
+            case "Employee":
+                showTable(db.searchEmployee(params[0].toString(), params[1].toString()), "Employee");
+                break;
+            case "Agreement":
+                showTable(
+                        db.searchAgreement(
+                                params[0].toString(),
+                                params[1].toString(),
+                                params[2].toString(),
+                                params[3].toString(),
+                                params[4].toString(),
+                                params[5].toString(),
+                                params[6].toString()
+                        ),
+                        "Agreement"
+                );
+                break;
+            case "Cassette":
+                showTable(
+                        db.searchCassette(
+                                params[0].toString(),
+                                params[1].toString(),
+                                params[2].toString(),
+                                params[3].toString(),
+                                params[4].toString(),
+                                params[5].toString(),
+                                params[6].toString()
+                        ),
+                        "Cassette"
+                );
+                break;
+        }
+    }
+
+    @Override
+    public void income(String startDate, String endDate){
+        int income =  db.getIncome(startDate, endDate);
+        showAlert(MessageFormat.format("Доход = {0}", income));
     }
 
     @Override
@@ -112,6 +153,18 @@ public class MainController extends AbstractController implements IMainControlle
     }
 
     @FXML
+    private void click_openSearchButton() {
+        String fileName = choiceDBBOX.getSelectionModel().getSelectedItem();
+        String path = MessageFormat.format("../{0}Screen/Search{1}Screen.fxml", fileName, fileName);
+        showScreen(path);
+    }
+
+    @FXML
+    private void click_incomeButton() {
+        showScreen("../AgreementScreen/IncomeAgreementScreen.fxml");
+    }
+
+    @FXML
     private void click_ShowSpecificAgreement() {
         showScreen("../AgreementScreen/SpecificAgreementScreen.fxml");
     }
@@ -122,7 +175,8 @@ public class MainController extends AbstractController implements IMainControlle
         showTable(dbData, dbName);
         //db.closeConnection();
     }
-    private void showTable(ResultSet dbData, String dbName){
+
+    private void showTable(ResultSet dbData, String dbName) {
         if (dbData != null) {
             try {
                 dbBox.getColumns().clear();
@@ -264,7 +318,6 @@ public class MainController extends AbstractController implements IMainControlle
             showAlert("Не удалось загрузить экран");
         }
     }
-
 
 }
 

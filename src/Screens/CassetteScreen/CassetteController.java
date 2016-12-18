@@ -34,6 +34,16 @@ public class CassetteController extends AbstractController implements Initializa
         if (choicebox_updateExist != null) {
             choicebox_updateExist.getItems().addAll("true", "false");
         }
+
+        if (box_searchExistChoice != null) {
+            box_searchExistChoice.getItems().addAll("true", "false", "null");
+            box_searchExistChoice.setValue("null");
+        }
+
+        if (box_searchYearChoice != null) {
+            box_searchYearChoice.getItems().addAll("=", "<", ">");
+            box_searchYearChoice.setValue("=");
+        }
     }
 
     //Добавление
@@ -94,7 +104,27 @@ public class CassetteController extends AbstractController implements Initializa
     private Label label_ID;
 
 
-    public void click_AddButton() {
+    //Поиск
+    @FXML
+    private ChoiceBox box_searchExistChoice;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private TextField box_searchGenre;
+    @FXML
+    private TextField box_searchName;
+    @FXML
+    private TextField box_searchDirector;
+    @FXML
+    private TextField box_searchPrice;
+    @FXML
+    private TextField box_searchYear;
+    @FXML
+    private ChoiceBox box_searchYearChoice;
+
+
+    @FXML
+    private void click_AddButton() {
         if (checkAddData()) {
             parent.addCortege(
                     box_Genre.getText(),
@@ -112,7 +142,8 @@ public class CassetteController extends AbstractController implements Initializa
         }
     }
 
-    public void click_DeleteButton() {
+    @FXML
+    private void click_DeleteButton() {
         if (checkDeleteData()) {
             parent.deleteCortege(
                     box_deleteID.getText(),
@@ -123,7 +154,7 @@ public class CassetteController extends AbstractController implements Initializa
                     box_deletePrice.getText(),
                     box_deleteYear.getText(),
                     box_deleteYearChoice.getValue(),
-                    getExistChoiceString(),
+                    getExistChoiceString(box_deleteExistChoice),
                     "cassette"
             );
             closeWindow(deleteButton);
@@ -132,7 +163,8 @@ public class CassetteController extends AbstractController implements Initializa
         }
     }
 
-    public void click_updateButton() {
+    @FXML
+    private void click_updateButton() {
         if (checkUpdateData()) {
 
             parent.updateCortege(
@@ -152,6 +184,26 @@ public class CassetteController extends AbstractController implements Initializa
         }
 
     }
+
+    @FXML
+    private void click_searchButton() {
+        if (checkSearchData()) {
+            parent.searchData(
+                    box_searchGenre.getText(),
+                    box_searchName.getText(),
+                    box_searchDirector.getText(),
+                    box_searchPrice.getText(),
+                    box_searchYear.getText(),
+                    box_searchYearChoice.getValue(),
+                    getExistChoiceString(box_searchExistChoice),
+                    "Cassette"
+            );
+            closeWindow(searchButton);
+        } else {
+            showAlert("Хотя бы одно поле должно быть заполнено");
+        }
+    }
+
 
     @Override
     public void setTextField(Object... obj) {
@@ -189,6 +241,16 @@ public class CassetteController extends AbstractController implements Initializa
                 && !box_updatePrice.getText().isEmpty();
     }
 
+    private boolean checkSearchData() {
+        return !box_searchGenre.getText().isEmpty() ||
+                !box_searchName.getText().isEmpty() ||
+                !box_searchDirector.getText().isEmpty() ||
+                !box_searchPrice.getText().isEmpty() ||
+                !box_searchYear.getText().isEmpty() ||
+                box_searchExistChoice.getValue() != "null"
+                ;
+    }
+
     //Вспомогательные ф-ии
     private boolean checkIntegerSyntax(String text) {
         try {
@@ -200,8 +262,8 @@ public class CassetteController extends AbstractController implements Initializa
 
     }
 
-    private String getExistChoiceString() {
-        return box_deleteExistChoice.getValue() == "null" ? "" : (String) box_deleteExistChoice.getValue();
+    private String getExistChoiceString(ChoiceBox box) {
+        return box.getValue() == "null" ? "" : (String) box.getValue();
     }
 
 

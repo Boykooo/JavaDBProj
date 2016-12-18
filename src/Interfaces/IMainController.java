@@ -5,6 +5,8 @@ public interface IMainController {
     void deleteCortege(Object... params);
     void updateCortege(Object... params);
     void showSpecificAgreement(String phone);
+    void searchData(Object... params);
+    void income(String startDate, String endDate);
 
     void closeConnection();
 }

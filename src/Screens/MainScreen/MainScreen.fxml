@@ -48,5 +48,15 @@
          <font>
             <Font size="18.0" />
          </font></Button>
+      <Button fx:id="openSearchButton" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#click_openSearchButton" prefHeight="43.0" prefWidth="171.0" text="Поиск">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="incomeButton" layoutX="415.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#click_incomeButton" prefHeight="43.0" prefWidth="171.0" text="Доход">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
   </children>
 </AnchorPane>

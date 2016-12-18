@@ -19,6 +19,9 @@ public class AgreementController extends AbstractController implements Initializ
     public void initialize(URL location, ResourceBundle resources) {
         if (deleteChoiceTotalPrice != null)
             deleteChoiceTotalPrice.getItems().addAll("=", "<", ">");
+
+        if (box_searchPriceChoice != null)
+            box_searchPriceChoice.getItems().addAll("=", "<", ">");
     }
 
     //Добавление
@@ -76,6 +79,32 @@ public class AgreementController extends AbstractController implements Initializ
     private TextField box_updateClientName;
     @FXML
     private Label label_ID;
+
+    //Поиск
+    @FXML
+    private DatePicker box_searchOrderDate;
+    @FXML
+    private DatePicker box_searchReturnDate;
+    @FXML
+    private TextField box_searchEmployeeID;
+    @FXML
+    private ChoiceBox box_searchPriceChoice;
+    @FXML
+    private TextField box_searchName;
+    @FXML
+    private TextField box_searchPhone;
+    @FXML
+    private TextField box_searchPrice;
+    @FXML
+    private Button searchButton;
+
+    //Доход
+    @FXML
+    private Button button_incomeButton;
+    @FXML
+    private DatePicker box_incomeStart;
+    @FXML
+    private DatePicker box_incomeEnd;
 
     @FXML
     public Button specificButton;
@@ -140,7 +169,7 @@ public class AgreementController extends AbstractController implements Initializ
 
             closeWindow(updateButton);
         } else {
-
+            showAlert("Некорректный ввод");
         }
     }
 
@@ -154,6 +183,38 @@ public class AgreementController extends AbstractController implements Initializ
 
         } else {
             showAlert("Введите телефон");
+        }
+    }
+
+    @FXML
+    private void click_searchButton() {
+        if (checkSearchData()) {
+            String orderDate = (box_searchOrderDate.getValue() != null) ? box_searchOrderDate.getValue().toString() : "";
+            String returnDate = (box_searchReturnDate.getValue() != null) ? box_searchReturnDate.getValue().toString() : "";
+            parent.searchData(
+                    box_searchName.getText(),
+                    box_searchPhone.getText(),
+                    box_searchPrice.getText(),
+                    box_searchPriceChoice.getValue(),
+                    box_searchEmployeeID.getText(),
+                    orderDate,
+                    returnDate,
+                    "Agreement"
+            );
+
+            closeWindow(searchButton);
+        } else {
+            showAlert("Хотя бы одно поле должно быть заполнено");
+        }
+    }
+
+    public void click_incomeButton() {
+        if (checkIncomeData()) {
+            parent.income(box_incomeStart.getValue().toString(), box_incomeEnd.getValue().toString());
+
+            closeWindow(button_incomeButton);
+        } else {
+            showAlert("Все поля должны быть заполнены");
         }
     }
 
@@ -225,4 +286,35 @@ public class AgreementController extends AbstractController implements Initializ
                 && !box_updateEmployeeID.getText().isEmpty();
     }
 
+    private boolean checkSearchData() {
+        return !box_searchName.getText().isEmpty() ||
+                !box_searchPhone.getText().isEmpty() ||
+                !box_searchPrice.getText().isEmpty() ||
+                !box_searchEmployeeID.getText().isEmpty() ||
+                box_searchOrderDate.getValue() != null ||
+                box_searchReturnDate.getValue() != null;
+    }
+
+    private boolean checkIncomeData() {
+        return box_incomeEnd.getValue() != null && box_incomeStart != null;
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

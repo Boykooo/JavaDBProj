@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 public class EmployeeController extends AbstractController implements Initializable {
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (idChoiceBox != null)
@@ -52,52 +51,84 @@ public class EmployeeController extends AbstractController implements Initializa
     @FXML
     private Label label_ID;
 
-    public void click_AddButton(){
-        if (checkData()){
+    //Поиск
+    @FXML
+    private TextField box_searchName;
+    @FXML
+    private Button searchButton;
+    @FXML
+    private TextField box_searchPhone;
+
+    @FXML
+    private void click_AddButton() {
+        if (checkData()) {
             closeWindow(addButton);
             parent.addCortege(nameBox.getText(), phoneBox.getText(), "employee");
-        }
-        else
-        {
+        } else {
             showAlert("Поля не должны быть пусты");
         }
     }
-    public void click_DeleteButton() {
-        if (checkDeleteData()){
+
+    @FXML
+    private void click_DeleteButton() {
+        if (checkDeleteData()) {
             closeWindow(deleteButton);
             parent.deleteCortege(delete_IDBox.getText(), idChoiceBox.getValue(), delete_NameBox.getText(), delete_PhoneNumber.getText(), "employee");
-        }
-        else
-        {
+        } else {
             showAlert("Должен быть введен хотя бы 1 параметр");
         }
     }
-    public void click_UpdateButton() {
-        if (checkUpdateData()){
+
+    @FXML
+    private void click_UpdateButton() {
+        if (checkUpdateData()) {
             parent.updateCortege(box_updateName.getText(), box_updatePhone.getText(), label_ID.getText(), "employee");
             closeWindow(updateButton);
-        }
-        else {
+        } else {
             showAlert("Некорректный ввод");
         }
     }
 
+    @FXML
+    private void click_SearchButton() {
+        if (checkSearchData()) {
+            parent.searchData(
+                    box_searchName.getText(),
+                    box_searchPhone.getText(),
+                    "Employee"
+            );
+            closeWindow(searchButton);
+        }
+        else {
+            showAlert("Хотя бы одно поле должно быть заполнено");
+        }
+    }
+
     @Override
-    public void setTextField(Object... objects){
+    public void setTextField(Object... objects) {
         box_updateName.setText(objects[0].toString());
         box_updatePhone.setText(objects[1].toString());
         label_ID.setText(objects[2].toString());
     }
 
-    private boolean checkData(){
+    private boolean checkData() {
         return !nameBox.getText().isEmpty() && !phoneBox.getText().isEmpty();
     }
-    private boolean checkDeleteData(){
+
+    private boolean checkDeleteData() {
         return !delete_IDBox.getText().isEmpty() || !delete_PhoneNumber.getText().isEmpty() || !delete_NameBox.getText().isEmpty();
     }
-    private boolean checkUpdateData(){
+
+    private boolean checkUpdateData() {
         return !box_updatePhone.getText().isEmpty();
     }
+
+    private boolean checkSearchData() {
+        return !box_searchName.getText().isEmpty()
+                || !box_searchPhone.getText().isEmpty();
+    }
+
+
 }
 
 

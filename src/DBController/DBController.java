@@ -142,7 +142,8 @@ public class DBController {
         return getAgreementCassettes(phone);
     }
 
-    //Добавление в базу
+    //region <Добавление в базу>
+
     private void addNewEmployee(String name, String phone) {
         PreparedStatement request = null;
         try {
@@ -272,7 +273,9 @@ public class DBController {
         }
     }
 
-    //Удаление из базы
+    //endregion
+
+    //region <Удаление из базы>
     private void deleteEmployee(String id, String sign, String name, String phone) {
 
         if (!checkSign(sign)) {
@@ -315,7 +318,6 @@ public class DBController {
 
         String req;
         PreparedStatement request = null;
-
 
         try {
             //освобождение кассет
@@ -461,8 +463,9 @@ public class DBController {
             }
         }
     }
+    //endregion
 
-    //обновление базы
+    //region <Обновление базы>
     private void updateEmployee(String newName, String newPhone, String id) {
 
         if (!checkFreeUpdateValue("select * from employee where Phone_Number = ? and ID_Employee != ?", newPhone, id)) {
@@ -575,6 +578,130 @@ public class DBController {
         }
     }
 
+    //endregion
+
+    //region <Поиск информации>
+    public ResultSet searchEmployee(String name, String phone) {
+        ResultSet resultSet = null;
+
+        String req = "select * from employee where " +
+                "(Name = ? or ? = '') and " +
+                "(Phone_Number = ? or ? = '')";
+        PreparedStatement request = null;
+
+        try {
+            request = conn.prepareStatement(req);
+            request.setString(1, name);
+            request.setString(2, name);
+            request.setString(3, phone);
+            request.setString(4, phone);
+
+            resultSet = request.executeQuery();
+
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+
+        return resultSet;
+    }
+
+    public ResultSet searchAgreement(String clientName, String clientPhone, String totalPrice, String sign,
+                                      String employeeID, String orderDate, String returnDate) {
+
+        PreparedStatement request = null;
+        try {
+            String req = "select * from agreement where " +
+                    "(Client_Name = ? or ? = '') and " +
+                    "(Client_Phone_Number = ? or ? = '') and " +
+                    "(Total_Price " + sign + " ? or ? = '') and " +
+                    "(Order_Date = ? or isnull(?)) and " +
+                    "(ID_Employee = ? or ? = '') and " +
+                    "(Last_Return_Date = ? or isnull(?))";
+
+            request = conn.prepareStatement(req);
+            request.setString(1, clientName);
+            request.setString(2, clientName);
+            request.setString(3, clientPhone);
+            request.setString(4, clientPhone);
+            request.setString(5, totalPrice);
+            request.setString(6, totalPrice);
+            request.setDate(7, parseDate(orderDate));
+            request.setDate(8, parseDate(orderDate));
+            request.setString(9, employeeID);
+            request.setString(10, employeeID);
+            request.setDate(11, parseDate(returnDate));
+            request.setDate(12, parseDate(returnDate));
+
+            return request.executeQuery();
+
+        } catch (Exception e) {
+            view.showAlert("Ошибка при поиске договора");
+        }
+        return null;
+    }
+
+    public ResultSet searchCassette(String genre, String name, String director, String price, String year, String yearSign, String exist) {
+
+        ResultSet resultSet = null;
+
+        String req = "select * from cassette where " +
+                "(Genre = ? or ? = '') and " +
+                "(Name = ? or ? = '') and " +
+                "(Director = ? or ? = '') and " +
+                "(Price = ? or ? = '') and " +
+                "(Exist = ? or ? = '') and " +
+                "(Year " + yearSign + " ? or ? = '')";
+        PreparedStatement request = null;
+
+        try {
+            request = conn.prepareStatement(req);
+            request.setString(1, genre);
+            request.setString(2, genre);
+            request.setString(3, name);
+            request.setString(4, name);
+            request.setString(5, director);
+            request.setString(6, director);
+            request.setString(7, price);
+            request.setString(8, price);
+            request.setString(9, getBoolean(exist));
+            request.setString(10, getBoolean(exist));
+            request.setString(11, year);
+            request.setString(12, year);
+
+            resultSet = request.executeQuery();
+
+        } catch (Exception e) {
+            view.showAlert("Ошибка при удалении кассеты из базы");
+        }
+
+        return resultSet;
+    }
+
+    //endregion
+
+    public int getIncome(String startDate, String endDate){
+
+        String req = "select sum(Total_Price) from agreement " +
+                "where Order_Date > ? and Order_Date < ?";
+        PreparedStatement statement = null;
+        try
+        {
+            statement = conn.prepareStatement(req);
+            statement.setDate(1, parseDate(startDate));
+            statement.setDate(2, parseDate(endDate));
+
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            int k = resultSet.getInt("sum(Total_Price)");
+            return k;
+
+        }
+        catch (Exception e){
+            view.showAlert("Ошибка при получении прибыли");
+        }
+        return -1;
+    }
+
     //Информация из базы
     private ResultSet getAgreementCassettes(String phone) {
 
@@ -602,7 +729,7 @@ public class DBController {
         return resultSet;
     }
 
-    //Вспомогательные функции
+    //region <Вспомогательные функции>
     private Date parseDate(String date) throws ParseException {
         if (date.isEmpty()) {
             return null;
@@ -659,6 +786,7 @@ public class DBController {
         return count;
     }
 
+    //endregion
 
     private boolean checkFreeUpdateValue(String req, String value, String id) {
         int count = 0;
@@ -718,6 +846,7 @@ public class DBController {
         }
     }
 
+    //region <Подключение>
     private void attachDB() {
         try {
 
@@ -744,6 +873,8 @@ public class DBController {
             view.showAlert("Отключить базу не удалось");
         }
     }
+
+    //endregion
 }
 
 
